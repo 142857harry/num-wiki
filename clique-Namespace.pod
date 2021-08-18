@@ -5,13 +5,13 @@
 this API to manage signer votes and to check the health of a private network.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_getsnapshot" id="markdown-toc-clique_getsnapshot">clique_getSnapshot</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_getsnapshotathash" id="markdown-toc-clique_getsnapshotathash">clique_getSnapshotAtHash</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_getsigners" id="markdown-toc-clique_getsigners">clique_getSigners</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_proposals" id="markdown-toc-clique_proposals">clique_proposals</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_propose" id="markdown-toc-clique_propose">clique_propose</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_discard" id="markdown-toc-clique_discard">clique_discard</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-clique#clique_status" id="markdown-toc-clique_status">clique_status</a></li>
+  <li><a href="#clique_getsnapshot" id="markdown-toc-clique_getsnapshot">clique_getSnapshot</a></li>
+  <li><a href="#clique_getsnapshotathash" id="markdown-toc-clique_getsnapshotathash">clique_getSnapshotAtHash</a></li>
+  <li><a href="#clique_getsigners" id="markdown-toc-clique_getsigners">clique_getSigners</a></li>
+  <li><a href="#clique_proposals" id="markdown-toc-clique_proposals">clique_proposals</a></li>
+  <li><a href="#clique_propose" id="markdown-toc-clique_propose">clique_propose</a></li>
+  <li><a href="#clique_discard" id="markdown-toc-clique_discard">clique_discard</a></li>
+  <li><a href="#clique_status" id="markdown-toc-clique_status">clique_status</a></li>
 </ul>
 
 <h3 id="clique_getsnapshot">clique_getSnapshot</h3>
