@@ -30,7 +30,7 @@ and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/T
     <p>We could specify this function directly in the JavaScript console, but it would be unwieldy and difficult
 to edit.</p>
   </li>
-  <li>Run the <a href="https://geth.ethereum.org/docs/interface/javascript-console">JavaScript console</a>.</li>
+  <li>Run the <a href="./JavaScript-Console">JavaScript console</a>.</li>
   <li>Get the hash of a recent transaction. For example, if you use the Goerli network, you can get such a value
 <a href="https://goerli.etherscan.io/">here</a>.</li>
   <li>
@@ -65,7 +65,7 @@ return the output we get <code class="language-plaintext highlighter-rouge">\n</
 
 <h3 id="how-does-it-work">How Does It Work?</h3>
 
-<p>We call the same <code class="language-plaintext highlighter-rouge">debug.traceTransaction</code> function we use for <a href="https://geth.ethereum.org/docs/dapp/tracing">basic traces</a>, but
+<p>We call the same <code class="language-plaintext highlighter-rouge">debug.traceTransaction</code> function we use for <a href="./EVM-Tracing">basic traces</a>, but
 with a new parameter, <code class="language-plaintext highlighter-rouge">tracer</code>. This parameter is a string that is the JavaScript object we use. In the case of the trace
 above, it is:</p>
 
@@ -325,7 +325,7 @@ to convert this array to the hexadecimal representation we usually use to identi
 
 <p>This tutorial only taught the basics of using JavaScript to filter traces. We did not go over access to memory,
 or how to use the <code class="language-plaintext highlighter-rouge">db</code> parameter to know the state of the chain at the time of execution. All this and more is
-covered <a href="https://geth.ethereum.org/docs/rpc/ns-debug#javascript-based-tracing">in the reference</a>.</p>
+covered <a href="./debug-Namespace#javascript-based-tracing">in the reference</a>.</p>
 
 <p>Hopefully with this tool you will find it easier to trace the EVM’s behavior and debug thorny contract issues.</p>
 
