@@ -75,7 +75,7 @@ engine to be used for consensus.</p>
 <p>Note that the initial signer set must be configured through the <code class="language-plaintext highlighter-rouge">extradata</code> field. This
 field is required for clique to work.</p>
 
-<p>First create the signer account keys using the <a href="https://geth.ethereum.org/docs/interface/managing-your-accounts">geth account</a>
+<p>First create the signer account keys using the <a href="./Managing-Your-Accounts">geth account</a>
 command (run this command multiple times to create more than one signer key).</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth account new <span class="nt">--datadir</span> data
