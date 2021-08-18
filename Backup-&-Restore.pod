@@ -18,7 +18,7 @@ directory locations are platform specific:</p>
 should be transportable between nodes, platforms, implementations (C++, Go, Python).</p>
 
 <p>To configure the location of the data directory, the <code class="language-plaintext highlighter-rouge">--datadir</code> parameter can be
-specified. See <a href="https://geth.ethereum.org/docs/interface/command-line-options">CLI Options</a> for more details.</p>
+specified. See <a href="./Command%E2%80%90line-Options">CLI Options</a> for more details.</p>
 
 <p>Note the <a href="https://geth.ethereum.org/docs/interface/mining">ethash dag</a> is stored at <code class="language-plaintext highlighter-rouge">~/.ethash</code> (Mac/Linux) or
 <code class="language-plaintext highlighter-rouge">%APPDATA%\Ethash</code> (Windows) so that it can be reused by all clients. You can store this
