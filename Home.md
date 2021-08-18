@@ -3,7 +3,7 @@
 * [Home](#/wiki)
 
 ### Getting Started
-* [Getting Started with Geth](#/Getting-Started-with-Geth)
+* [Getting Started with Geth](/Getting-Started-with-Geth)
 * [Dev mode](https://github.com/cqlsy/yeelib/wiki/Dev-mode)
 * [Private Network Tutorial](https://github.com/cqlsy/yeelib/wiki/Private-Network-Tutorial)
 
