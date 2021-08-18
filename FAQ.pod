@@ -8,7 +8,7 @@
 
 <p><strong>Q.</strong>  I would like to run multiple geth instances but got the error “Fatal: blockchain db err: resource temporarily unavailable”.</p>
 
-<p><strong>A.</strong>  Geth uses a datadir to store the blockchain, accounts and some additional information. This directory cannot be shared between running instances. If you would like to run multiple instances follow <a href="https://geth.ethereum.org/docs/getting-started/private-net">these</a> instructions.</p>
+<p><strong>A.</strong>  Geth uses a datadir to store the blockchain, accounts and some additional information. This directory cannot be shared between running instances. If you would like to run multiple instances follow <a href="./Private-Network-Tutorial">these</a> instructions.</p>
 
 <hr>
 
