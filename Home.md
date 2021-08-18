@@ -10,7 +10,7 @@
 ### Install and Build
 * [Installing Geth](./Installing-Geth)
 * [Backup & Restore](./Backup-&-Restore)
-* [Cross-Compiling Geth](./Cross-Compiling-Geth)
+* [Cross-Compiling Geth](./Cross‐Compiling-Geth)
 
 ### Using Geth
 * [Command‐line Options](./Command%E2%80%90line-Options)
