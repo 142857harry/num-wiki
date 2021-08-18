@@ -1,54 +1,54 @@
     <div class="col-md-9" id="content">
 
-      
+
       <p>The <code class="language-plaintext highlighter-rouge">debug</code> API gives you access to several non-standard RPC methods, which will allow you
 to inspect, debug and set certain debugging flags during runtime.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_backtraceat" id="markdown-toc-debug_backtraceat">debug_backtraceAt</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_blockprofile" id="markdown-toc-debug_blockprofile">debug_blockProfile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_cpuprofile" id="markdown-toc-debug_cpuprofile">debug_cpuProfile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_dumpblock" id="markdown-toc-debug_dumpblock">debug_dumpBlock</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#example" id="markdown-toc-example">Example</a></li>
+  <li><a href="#debug_backtraceat" id="markdown-toc-debug_backtraceat">debug_backtraceAt</a></li>
+  <li><a href="#debug_blockprofile" id="markdown-toc-debug_blockprofile">debug_blockProfile</a></li>
+  <li><a href="#debug_cpuprofile" id="markdown-toc-debug_cpuprofile">debug_cpuProfile</a></li>
+  <li><a href="#debug_dumpblock" id="markdown-toc-debug_dumpblock">debug_dumpBlock</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_gcstats" id="markdown-toc-debug_gcstats">debug_gcStats</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_getblockrlp" id="markdown-toc-debug_getblockrlp">debug_getBlockRlp</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_gotrace" id="markdown-toc-debug_gotrace">debug_goTrace</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_memstats" id="markdown-toc-debug_memstats">debug_memStats</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_seedhash" id="markdown-toc-debug_seedhash">debug_seedHash</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_sethead" id="markdown-toc-debug_sethead">debug_setHead</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_setblockprofilerate" id="markdown-toc-debug_setblockprofilerate">debug_setBlockProfileRate</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_stacks" id="markdown-toc-debug_stacks">debug_stacks</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_startcpuprofile" id="markdown-toc-debug_startcpuprofile">debug_startCPUProfile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_startgotrace" id="markdown-toc-debug_startgotrace">debug_startGoTrace</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_stopcpuprofile" id="markdown-toc-debug_stopcpuprofile">debug_stopCPUProfile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_stopgotrace" id="markdown-toc-debug_stopgotrace">debug_stopGoTrace</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblock" id="markdown-toc-debug_traceblock">debug_traceBlock</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#example-1" id="markdown-toc-example-1">Example</a></li>
+  <li><a href="#debug_gcstats" id="markdown-toc-debug_gcstats">debug_gcStats</a></li>
+  <li><a href="#debug_getblockrlp" id="markdown-toc-debug_getblockrlp">debug_getBlockRlp</a></li>
+  <li><a href="#debug_gotrace" id="markdown-toc-debug_gotrace">debug_goTrace</a></li>
+  <li><a href="#debug_memstats" id="markdown-toc-debug_memstats">debug_memStats</a></li>
+  <li><a href="#debug_seedhash" id="markdown-toc-debug_seedhash">debug_seedHash</a></li>
+  <li><a href="#debug_sethead" id="markdown-toc-debug_sethead">debug_setHead</a></li>
+  <li><a href="#debug_setblockprofilerate" id="markdown-toc-debug_setblockprofilerate">debug_setBlockProfileRate</a></li>
+  <li><a href="#debug_stacks" id="markdown-toc-debug_stacks">debug_stacks</a></li>
+  <li><a href="#debug_startcpuprofile" id="markdown-toc-debug_startcpuprofile">debug_startCPUProfile</a></li>
+  <li><a href="#debug_startgotrace" id="markdown-toc-debug_startgotrace">debug_startGoTrace</a></li>
+  <li><a href="#debug_stopcpuprofile" id="markdown-toc-debug_stopcpuprofile">debug_stopCPUProfile</a></li>
+  <li><a href="#debug_stopgotrace" id="markdown-toc-debug_stopgotrace">debug_stopGoTrace</a></li>
+  <li><a href="#debug_traceblock" id="markdown-toc-debug_traceblock">debug_traceBlock</a>    <ul>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblockbynumber" id="markdown-toc-debug_traceblockbynumber">debug_traceBlockByNumber</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblockbyhash" id="markdown-toc-debug_traceblockbyhash">debug_traceBlockByHash</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblockfromfile" id="markdown-toc-debug_traceblockfromfile">debug_traceBlockFromFile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_standardtraceblocktofile" id="markdown-toc-debug_standardtraceblocktofile">debug_standardTraceBlockToFile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_standardtracebadblocktofile" id="markdown-toc-debug_standardtracebadblocktofile">debug_standardTraceBadBlockToFile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction" id="markdown-toc-debug_tracetransaction">debug_traceTransaction</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#javascript-based-tracing" id="markdown-toc-javascript-based-tracing">JavaScript-based tracing</a></li>
+  <li><a href="#debug_traceblockbynumber" id="markdown-toc-debug_traceblockbynumber">debug_traceBlockByNumber</a></li>
+  <li><a href="#debug_traceblockbyhash" id="markdown-toc-debug_traceblockbyhash">debug_traceBlockByHash</a></li>
+  <li><a href="#debug_traceblockfromfile" id="markdown-toc-debug_traceblockfromfile">debug_traceBlockFromFile</a></li>
+  <li><a href="#debug_standardtraceblocktofile" id="markdown-toc-debug_standardtraceblocktofile">debug_standardTraceBlockToFile</a></li>
+  <li><a href="#debug_standardtracebadblocktofile" id="markdown-toc-debug_standardtracebadblocktofile">debug_standardTraceBadBlockToFile</a></li>
+  <li><a href="#debug_tracetransaction" id="markdown-toc-debug_tracetransaction">debug_traceTransaction</a>    <ul>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#javascript-based-tracing" id="markdown-toc-javascript-based-tracing">JavaScript-based tracing</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracecall" id="markdown-toc-debug_tracecall">debug_traceCall</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#example-3" id="markdown-toc-example-3">Example</a></li>
+  <li><a href="#debug_tracecall" id="markdown-toc-debug_tracecall">debug_traceCall</a>    <ul>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_verbosity" id="markdown-toc-debug_verbosity">debug_verbosity</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_vmodule" id="markdown-toc-debug_vmodule">debug_vmodule</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#examples" id="markdown-toc-examples">Examples</a></li>
+  <li><a href="#debug_verbosity" id="markdown-toc-debug_verbosity">debug_verbosity</a></li>
+  <li><a href="#debug_vmodule" id="markdown-toc-debug_vmodule">debug_vmodule</a>    <ul>
+      <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_writeblockprofile" id="markdown-toc-debug_writeblockprofile">debug_writeBlockProfile</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_writememprofile" id="markdown-toc-debug_writememprofile">debug_writeMemProfile</a></li>
+  <li><a href="#debug_writeblockprofile" id="markdown-toc-debug_writeblockprofile">debug_writeBlockProfile</a></li>
+  <li><a href="#debug_writememprofile" id="markdown-toc-debug_writememprofile">debug_writeMemProfile</a></li>
 </ul>
 
 <h3 id="debug_backtraceat">debug_backtraceAt</h3>
@@ -562,7 +562,7 @@ fail.</p>
 
 <h3 id="debug_traceblockbynumber">debug_traceBlockByNumber</h3>
 
-<p>Similar to <a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockByNumber</code> accepts a block number and will replay the
+<p>Similar to <a href="#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockByNumber</code> accepts a block number and will replay the
 block that is already present in the database.</p>
 
 <table>
@@ -593,7 +593,7 @@ block that is already present in the database.</p>
 
 <h3 id="debug_traceblockbyhash">debug_traceBlockByHash</h3>
 
-<p>Similar to <a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockByHash</code> accepts a block hash and will replay the
+<p>Similar to <a href="#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockByHash</code> accepts a block hash and will replay the
 block that is already present in the database.</p>
 
 <table>
@@ -624,7 +624,7 @@ block that is already present in the database.</p>
 
 <h3 id="debug_traceblockfromfile">debug_traceBlockFromFile</h3>
 
-<p>Similar to <a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockFromFile</code> accepts a file containing the RLP of the block.</p>
+<p>Similar to <a href="#debug_traceblock">debug_traceBlock</a>, <code class="language-plaintext highlighter-rouge">traceBlockFromFile</code> accepts a file containing the RLP of the block.</p>
 
 <table>
   <thead>
@@ -944,11 +944,11 @@ It returns the same output as <code class="language-plaintext highlighter-rouge"
 </code></pre></div></div>
 <p>Tracing a call with a destination and specific sender, disabling the storage and memory output (less data returned over RPC)</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>debug.traceCall({
-	from: "0xdeadbeef292929291929394949595949339292929, 
-	to:"0xde929f939d939d393f939393f93939f393929023", 
-	gas: "0x7a120", 
+	from: "0xdeadbeef292929291929394949595949339292929,
+	to:"0xde929f939d939d393f939393f93939f393929023",
+	gas: "0x7a120",
 	data: "0xf00d4b5d00000000000000000000000001291230982139282304923482304912923823920000000000000000000000001293123098123928310239129839291010293810"
-	}, 
+	},
 	"latest", {disableStorage:true, disableMemory: true})
 </code></pre></div></div>
 <p>Curl example:</p>
