@@ -3,8 +3,8 @@
 * [Home](#)
 
 ### Getting Started
-* [Getting Started with Geth](#/Getting-Started-with-Geth)
-* [Dev mode](#/Dev-mode)
+* [Getting Started with Geth](/Getting-Started-with-Geth)
+* [Dev mode](./Dev-mode)
 * [Private Network Tutorial](https://github.com/cqlsy/yeelib/wiki/Private-Network-Tutorial)
 
 ### Install and Build
