@@ -1,7 +1,7 @@
   <div class="col-md-9" id="content">
       
       <p>To use Geth, you need to install it first. You can install Geth in a variety
-of ways that you can find in the “<a href="https://geth.ethereum.org/docs/install-and-build/installing-geth">Install and Build</a>” section.
+of ways that you can find in the “<a href="../installing-geth">Install and Build</a>” section.
 These include installing it via your favorite package manager, downloading a
 standalone pre-built binary, running it as a docker container or building it yourself.</p>
 
