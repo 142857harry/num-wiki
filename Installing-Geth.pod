@@ -9,22 +9,22 @@ prefer. A list of stable releases can be found <a href="https://github.com/ether
 
 <ul id="markdown-toc">
   <li><a href="#updating-geth" id="markdown-toc-updating-geth">Updating Geth</a></li>
-  <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-from-a-package-manager" id="markdown-toc-install-from-a-package-manager">Install from a package manager</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-macos-via-homebrew" id="markdown-toc-install-on-macos-via-homebrew">Install on macOS via Homebrew</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-ubuntu-via-ppas" id="markdown-toc-install-on-ubuntu-via-ppas">Install on Ubuntu via PPAs</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-windows" id="markdown-toc-install-on-windows">Install on Windows</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-freebsd-via-pkg" id="markdown-toc-install-on-freebsd-via-pkg">Install on FreeBSD via pkg</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-freebsd-via-ports" id="markdown-toc-install-on-freebsd-via-ports">Install on FreeBSD via ports</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-arch-linux-via-pacman" id="markdown-toc-install-on-arch-linux-via-pacman">Install on Arch Linux via <code class="language-plaintext highlighter-rouge">pacman</code></a></li>
+  <li><a href="#install-from-a-package-manager" id="markdown-toc-install-from-a-package-manager">Install from a package manager</a>    <ul>
+      <li><a href="#install-on-macos-via-homebrew" id="markdown-toc-install-on-macos-via-homebrew">Install on macOS via Homebrew</a></li>
+      <li><a href="#install-on-ubuntu-via-ppas" id="markdown-toc-install-on-ubuntu-via-ppas">Install on Ubuntu via PPAs</a></li>
+      <li><a href="#install-on-windows" id="markdown-toc-install-on-windows">Install on Windows</a></li>
+      <li><a href="#install-on-freebsd-via-pkg" id="markdown-toc-install-on-freebsd-via-pkg">Install on FreeBSD via pkg</a></li>
+      <li><a href="#install-on-freebsd-via-ports" id="markdown-toc-install-on-freebsd-via-ports">Install on FreeBSD via ports</a></li>
+      <li><a href="#install-on-arch-linux-via-pacman" id="markdown-toc-install-on-arch-linux-via-pacman">Install on Arch Linux via <code class="language-plaintext highlighter-rouge">pacman</code></a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#download-standalone-bundle" id="markdown-toc-download-standalone-bundle">Download standalone bundle</a></li>
-  <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#run-inside-docker-container" id="markdown-toc-run-inside-docker-container">Run inside Docker container</a></li>
-  <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#build-go-ethereum-from-source-code" id="markdown-toc-build-go-ethereum-from-source-code">Build go-ethereum from source code</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#most-linux-systems-and-macos" id="markdown-toc-most-linux-systems-and-macos">Most Linux systems and macOS</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#windows" id="markdown-toc-windows">Windows</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#freebsd" id="markdown-toc-freebsd">FreeBSD</a></li>
-      <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#building-without-a-go-workflow" id="markdown-toc-building-without-a-go-workflow">Building without a Go workflow</a></li>
+  <li><a href="#download-standalone-bundle" id="markdown-toc-download-standalone-bundle">Download standalone bundle</a></li>
+  <li><a href="#run-inside-docker-container" id="markdown-toc-run-inside-docker-container">Run inside Docker container</a></li>
+  <li><a href="#build-go-ethereum-from-source-code" id="markdown-toc-build-go-ethereum-from-source-code">Build go-ethereum from source code</a>    <ul>
+      <li><a href="#most-linux-systems-and-macos" id="markdown-toc-most-linux-systems-and-macos">Most Linux systems and macOS</a></li>
+      <li><a href="#windows" id="markdown-toc-windows">Windows</a></li>
+      <li><a href="#freebsd" id="markdown-toc-freebsd">FreeBSD</a></li>
+      <li><a href="#building-without-a-go-workflow" id="markdown-toc-building-without-a-go-workflow">Building without a Go workflow</a></li>
     </ul>
   </li>
 </ul>
@@ -306,7 +306,7 @@ any additional files.</p>
 <p>Additionally you can compile all additional tools go-ethereum comes with by running <code class="language-plaintext highlighter-rouge">make
 all</code>. A list of all tools can be found <a href="https://github.com/ethereum/go-ethereum#executables">here</a>.</p>
 
-<p>If you want to cross-compile to another architecture check out the <a href="https://geth.ethereum.org/docs/install-and-build/cross-compile">cross-compilation guide</a>.</p>
+<p>If you want to cross-compile to another architecture check out the <a href="./Cross-Compiling-Geth">cross-compilation guide</a>.</p>
 
 <p>If you want to build a stable release, the v1.9.21 release for example, you can use <code class="language-plaintext highlighter-rouge">git
 checkout v1.9.21</code> before running <code class="language-plaintext highlighter-rouge">make geth</code> to switch to a stable branch.</p>
