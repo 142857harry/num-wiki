@@ -8,7 +8,7 @@ of the possibilities to get you joining the Ethereum network using whatever mean
 prefer. A list of stable releases can be found <a href="https://github.com/ethereum/go-ethereum/releases">here</a>.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#updating-geth" id="markdown-toc-updating-geth">Updating Geth</a></li>
+  <li><a href="#updating-geth" id="markdown-toc-updating-geth">Updating Geth</a></li>
   <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-from-a-package-manager" id="markdown-toc-install-from-a-package-manager">Install from a package manager</a>    <ul>
       <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-macos-via-homebrew" id="markdown-toc-install-on-macos-via-homebrew">Install on macOS via Homebrew</a></li>
       <li><a href="https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-ubuntu-via-ppas" id="markdown-toc-install-on-ubuntu-via-ppas">Install on Ubuntu via PPAs</a></li>
