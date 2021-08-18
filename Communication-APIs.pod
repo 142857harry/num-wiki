@@ -31,7 +31,7 @@ process output for confirmation-requests.</li>
 <ul>
   <li>Changelog for <a href="https://github.com/ethereum/go-ethereum/blob/master/cmd/clef/extapi_changelog.md">External API</a></li>
   <li>Changelog for <a href="https://github.com/ethereum/go-ethereum/blob/master/cmd/clef/intapi_changelog.md">UI API</a></li>
-  <li>Documentation about <a href="https://geth.ethereum.org/docs/clef/datatypes">Datatypes</a></li>
+  <li>Documentation about <a href="./Communication-data-types">Datatypes</a></li>
 </ul>
 
 <h2 id="external-api-1">External API</h2>
