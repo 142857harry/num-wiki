@@ -53,7 +53,7 @@ as the example address.</p>
 </code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">ethminer</code> communicates with geth on port 8545 (the default RPC port in geth). You can
-change this by giving the <a href="https://geth.ethereum.org/docs/rpc/server"><code class="language-plaintext highlighter-rouge">--http.port</code> option</a> to <code class="language-plaintext highlighter-rouge">geth</code>. Ethminer will find
+change this by giving the <a href="./JSON-RPC-Server"><code class="language-plaintext highlighter-rouge">--http.port</code> option</a> to <code class="language-plaintext highlighter-rouge">geth</code>. Ethminer will find
 geth on any port. You also need to set the port on <code class="language-plaintext highlighter-rouge">ethminer</code> with <code class="language-plaintext highlighter-rouge">-P
 http://127.0.0.1:3301</code>. Setting up custom ports is necessary if you want several instances
 mining on the same computer. If you are testing on a private cluster, we recommend you use
@@ -82,7 +82,7 @@ processor cores).</p>
 </code></pre></div></div>
 
 <p>You can also start and stop CPU mining at runtime using the
-<a href="https://geth.ethereum.org/docs/interface/javascript-console">console</a>. <code class="language-plaintext highlighter-rouge">miner.start</code> takes an optional parameter for
+<a href="./JavaScript-Console">console</a>. <code class="language-plaintext highlighter-rouge">miner.start</code> takes an optional parameter for
 the number of miner threads.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; miner.start(8)
@@ -97,7 +97,7 @@ downloader/synchroniser will delay mining until syncing is complete, and after t
 automatically starts unless you cancel your intention with <code class="language-plaintext highlighter-rouge">miner.stop()</code>.</p>
 
 <p>In order to earn ether you must have your <strong>etherbase</strong> (or <strong>coinbase</strong>) address set.
-This etherbase defaults to your <a href="https://geth.ethereum.org/docs/interface/managing-your-accounts">primary account</a>. If
+This etherbase defaults to your <a href="./Managing-Your-Accounts">primary account</a>. If
 you don’t have an etherbase address, then <code class="language-plaintext highlighter-rouge">geth --mine</code> will not start up.</p>
 
 <p>You can set your etherbase on the command line:</p>
@@ -113,14 +113,14 @@ you don’t have an etherbase address, then <code class="language-plaintext high
 <p>Note that your etherbase does not need to be an address of a local account, just an
 existing one.</p>
 
-<p>There is an option <a href="https://geth.ethereum.org/docs/interface/javascript-console">to add extra data</a> (32 bytes only) to
+<p>There is an option <a href="./JavaScript-Console">to add extra data</a> (32 bytes only) to
 your mined blocks. By convention this is interpreted as a unicode string, so you can set
 your short vanity tag.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; miner.setExtra("ΞTHΞЯSPHΞЯΞ")
 </code></pre></div></div>
 
-<p>You can check your hashrate with <a href="https://geth.ethereum.org/docs/interface/javascript-console">miner.hashrate</a>, the
+<p>You can check your hashrate with <a href="./JavaScript-Console">miner.hashrate</a>, the
 result is in H/s (Hash operations per second).</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; eth.hashrate
