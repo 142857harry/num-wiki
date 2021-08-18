@@ -1,7 +1,7 @@
  <div class="col-md-9" id="content">
 
       <p><strong>NOTE: These instructions are for people who want to contribute Go source code changes.
-If you just want to run ethereum, use the regular <a href="https://geth.ethereum.org/docs/install-and-build/installing-geth">Installation Instructions</a>.</strong></p>
+If you just want to run ethereum, use the regular <a href="./Installing-Geth">Installation Instructions</a>.</strong></p>
 
 <p>This document is the entry point for developers of the Go implementation of Ethereum.
 Developers here refer to the hands-on: who are interested in build, develop, debug, submit
@@ -25,7 +25,7 @@ effort as well as speeding up our review and merge procedures.</p>
 <p>PRs need to be based on and opened against the <code class="language-plaintext highlighter-rouge">master</code> branch (unless by explicit
 agreement, you contribute to a complex feature branch).</p>
 
-<p>Your PR will be reviewed according to the <a href="https://geth.ethereum.org/docs/developers/code-review-guidelines">Code Review guidelines</a>.</p>
+<p>Your PR will be reviewed according to the <a href="./Code-Review-Guidelines">Code Review guidelines</a>.</p>
 
 <p>We encourage a PR early approach, meaning you create the PR the earliest even without the
 fix/feature. This will let core devs and other volunteers know you picked up an issue.
@@ -54,7 +54,7 @@ dependencies. Using <code class="language-plaintext highlighter-rouge">GOPATH</c
 </code></pre></div></div>
 
 <p>If you want to compile geth for an architecture that differs from your host, please
-consult our <a href="https://geth.ethereum.org/docs/install-and-build/cross-compile">cross compilation guide</a>.</p>
+consult our <a href="./Cross-Compiling-Geth">cross compilation guide</a>.</p>
 
 <h3 id="testing">Testing</h3>
 
