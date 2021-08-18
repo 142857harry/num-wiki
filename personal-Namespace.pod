@@ -3,30 +3,30 @@
       <p>The personal API manages private keys in the key store.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_importrawkey" id="markdown-toc-personal_importrawkey">personal_importRawKey</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_listaccounts" id="markdown-toc-personal_listaccounts">personal_listAccounts</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#example" id="markdown-toc-example">Example</a></li>
+  <li><a href="#personal_importrawkey" id="markdown-toc-personal_importrawkey">personal_importRawKey</a></li>
+  <li><a href="#personal_listaccounts" id="markdown-toc-personal_listaccounts">personal_listAccounts</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_lockaccount" id="markdown-toc-personal_lockaccount">personal_lockAccount</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_newaccount" id="markdown-toc-personal_newaccount">personal_newAccount</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#example-1" id="markdown-toc-example-1">Example</a></li>
+  <li><a href="#personal_lockaccount" id="markdown-toc-personal_lockaccount">personal_lockAccount</a></li>
+  <li><a href="#personal_newaccount" id="markdown-toc-personal_newaccount">personal_newAccount</a>    <ul>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_unlockaccount" id="markdown-toc-personal_unlockaccount">personal_unlockAccount</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#examples" id="markdown-toc-examples">Examples</a></li>
+  <li><a href="#personal_unlockaccount" id="markdown-toc-personal_unlockaccount">personal_unlockAccount</a>    <ul>
+      <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_sendtransaction" id="markdown-toc-personal_sendtransaction">personal_sendTransaction</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#examples-1" id="markdown-toc-examples-1">Examples</a></li>
+  <li><a href="#personal_sendtransaction" id="markdown-toc-personal_sendtransaction">personal_sendTransaction</a>    <ul>
+      <li><a href="#examples-1" id="markdown-toc-examples-1">Examples</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_sign" id="markdown-toc-personal_sign">personal_sign</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#examples-2" id="markdown-toc-examples-2">Examples</a></li>
+  <li><a href="#personal_sign" id="markdown-toc-personal_sign">personal_sign</a>    <ul>
+      <li><a href="#examples-2" id="markdown-toc-examples-2">Examples</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#personal_ecrecover" id="markdown-toc-personal_ecrecover">personal_ecRecover</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-personal#examples-3" id="markdown-toc-examples-3">Examples</a></li>
+  <li><a href="#personal_ecrecover" id="markdown-toc-personal_ecrecover">personal_ecRecover</a>    <ul>
+      <li><a href="#examples-3" id="markdown-toc-examples-3">Examples</a></li>
     </ul>
   </li>
 </ul>
