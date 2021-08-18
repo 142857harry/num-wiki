@@ -1,6 +1,6 @@
 # POD Blockchain Wiki
 
-* [Home](#)
+* [Home](./)
 
 ### Getting Started
 * [Getting Started with Geth](/Getting-Started-with-Geth)
