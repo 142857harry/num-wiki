@@ -104,9 +104,9 @@ that take the above form:</p>
 
 <h3 id="generating-basic-traces">Generating basic traces</h3>
 
-<p>To generate a raw EVM opcode trace, <code class="language-plaintext highlighter-rouge">go-ethereum</code> provides a few <a href="https://geth.ethereum.org/docs/rpc/ns-debug">RPC API
+<p>To generate a raw EVM opcode trace, <code class="language-plaintext highlighter-rouge">go-ethereum</code> provides a few <a href="./debug-Namespace">RPC API
 endpoints</a>, out of which the most commonly used is
-<a href="https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction"><code class="language-plaintext highlighter-rouge">debug_traceTransaction</code></a>.</p>
+<a href="./debug-Namespace#debug_tracetransaction"><code class="language-plaintext highlighter-rouge">debug_traceTransaction</code></a>.</p>
 
 <p>In its simplest form, <code class="language-plaintext highlighter-rouge">traceTransaction</code> accepts a transaction hash as its sole argument,
 traces the transaction, aggregates all the generated data and returns it as a <strong>large</strong>
