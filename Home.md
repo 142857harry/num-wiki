@@ -1,10 +1,10 @@
 # POD Blockchain Wiki
 
-* [Home](#/wiki)
+* [Home](#)
 
 ### Getting Started
 * [Getting Started with Geth](#Getting-Started-with-Geth)
-* [Dev mode](https://github.com/cqlsy/yeelib/wiki/Dev-mode)
+* [Dev mode](#Dev-mode)
 * [Private Network Tutorial](https://github.com/cqlsy/yeelib/wiki/Private-Network-Tutorial)
 
 ### Install and Build
