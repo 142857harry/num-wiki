@@ -1,27 +1,27 @@
     <div class="col-md-9" id="content">
 
-      
+
       <p>Geth provides several extensions to the standard “eth” JSON-RPC namespace.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#eth_subscribe-eth_unsubscribe" id="markdown-toc-eth_subscribe-eth_unsubscribe">eth_subscribe, eth_unsubscribe</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#eth_call" id="markdown-toc-eth_call">eth_call</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#parameters" id="markdown-toc-parameters">Parameters</a>        <ul>
-          <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#1-object---transaction-call-object" id="markdown-toc-1-object---transaction-call-object">1. <code class="language-plaintext highlighter-rouge">Object</code> - Transaction call object</a></li>
-          <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#2-quantity--tag---block-number-or-the-string-latest-or-pending" id="markdown-toc-2-quantity--tag---block-number-or-the-string-latest-or-pending">2. <code class="language-plaintext highlighter-rouge">Quantity | Tag</code> - Block number or the string <code class="language-plaintext highlighter-rouge">latest</code> or <code class="language-plaintext highlighter-rouge">pending</code></a></li>
-          <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#3-object---state-override-set" id="markdown-toc-3-object---state-override-set">3. <code class="language-plaintext highlighter-rouge">Object</code> - State override set</a></li>
+  <li><a href="#eth_subscribe-eth_unsubscribe" id="markdown-toc-eth_subscribe-eth_unsubscribe">eth_subscribe, eth_unsubscribe</a></li>
+  <li><a href="#eth_call" id="markdown-toc-eth_call">eth_call</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a>        <ul>
+          <li><a href="#1-object---transaction-call-object" id="markdown-toc-1-object---transaction-call-object">1. <code class="language-plaintext highlighter-rouge">Object</code> - Transaction call object</a></li>
+          <li><a href="#2-quantity--tag---block-number-or-the-string-latest-or-pending" id="markdown-toc-2-quantity--tag---block-number-or-the-string-latest-or-pending">2. <code class="language-plaintext highlighter-rouge">Quantity | Tag</code> - Block number or the string <code class="language-plaintext highlighter-rouge">latest</code> or <code class="language-plaintext highlighter-rouge">pending</code></a></li>
+          <li><a href="#3-object---state-override-set" id="markdown-toc-3-object---state-override-set">3. <code class="language-plaintext highlighter-rouge">Object</code> - State override set</a></li>
         </ul>
       </li>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#return-values" id="markdown-toc-return-values">Return Values</a></li>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#simple-example" id="markdown-toc-simple-example">Simple example</a></li>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-eth#override-example" id="markdown-toc-override-example">Override example</a></li>
+      <li><a href="#return-values" id="markdown-toc-return-values">Return Values</a></li>
+      <li><a href="#simple-example" id="markdown-toc-simple-example">Simple example</a></li>
+      <li><a href="#override-example" id="markdown-toc-override-example">Override example</a></li>
     </ul>
   </li>
 </ul>
 
 <h3 id="eth_subscribe-eth_unsubscribe">eth_subscribe, eth_unsubscribe</h3>
 
-<p>These methods are used for real-time events through subscriptions. See the <a href="https://geth.ethereum.org/docs/rpc/pubsub">subscription
+<p>These methods are used for real-time events through subscriptions. See the <a href="./Real-time-Events">subscription
 documentation</a> for more information.</p>
 
 <h3 id="eth_call">eth_call</h3>
