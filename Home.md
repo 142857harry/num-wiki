@@ -1,6 +1,6 @@
 # POD Blockchain Wiki
 
-* [Home](https://github.com/cqlsy/yeelib/wiki)
+* [Home](#/wiki)
 
 ### Getting Started
 * [Getting Started with Geth](https://github.com/cqlsy/yeelib/wiki/Getting-Started-with-Geth)
