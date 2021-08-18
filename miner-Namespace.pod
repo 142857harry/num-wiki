@@ -4,13 +4,13 @@
 mining specific settings.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_gethashrate" id="markdown-toc-miner_gethashrate">miner_getHashrate</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_setextra" id="markdown-toc-miner_setextra">miner_setExtra</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_setgasprice" id="markdown-toc-miner_setgasprice">miner_setGasPrice</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_start" id="markdown-toc-miner_start">miner_start</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_stop" id="markdown-toc-miner_stop">miner_stop</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_setetherbase" id="markdown-toc-miner_setetherbase">miner_setEtherbase</a></li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-miner#miner_setgaslimit" id="markdown-toc-miner_setgaslimit">miner_setGasLimit</a></li>
+  <li><a href="#miner_gethashrate" id="markdown-toc-miner_gethashrate">miner_getHashrate</a></li>
+  <li><a href="#miner_setextra" id="markdown-toc-miner_setextra">miner_setExtra</a></li>
+  <li><a href="#miner_setgasprice" id="markdown-toc-miner_setgasprice">miner_setGasPrice</a></li>
+  <li><a href="#miner_start" id="markdown-toc-miner_start">miner_start</a></li>
+  <li><a href="#miner_stop" id="markdown-toc-miner_stop">miner_stop</a></li>
+  <li><a href="#miner_setetherbase" id="markdown-toc-miner_setetherbase">miner_setEtherbase</a></li>
+  <li><a href="#miner_setgaslimit" id="markdown-toc-miner_setgaslimit">miner_setGasLimit</a></li>
 </ul>
 
 <h3 id="miner_gethashrate">miner_getHashrate</h3>
