@@ -5,16 +5,16 @@ transaction pool containing all the currently pending transactions as well as th
 future processing.</p>
 
 <ul id="markdown-toc">
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#txpool_content" id="markdown-toc-txpool_content">txpool_content</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#example" id="markdown-toc-example">Example</a></li>
+  <li><a href="#txpool_content" id="markdown-toc-txpool_content">txpool_content</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#txpool_inspect" id="markdown-toc-txpool_inspect">txpool_inspect</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#example-1" id="markdown-toc-example-1">Example</a></li>
+  <li><a href="#txpool_inspect" id="markdown-toc-txpool_inspect">txpool_inspect</a>    <ul>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
     </ul>
   </li>
-  <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#txpool_status" id="markdown-toc-txpool_status">txpool_status</a>    <ul>
-      <li><a href="https://geth.ethereum.org/docs/rpc/ns-txpool#example-2" id="markdown-toc-example-2">Example</a></li>
+  <li><a href="#txpool_status" id="markdown-toc-txpool_status">txpool_status</a>    <ul>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
     </ul>
   </li>
 </ul>
