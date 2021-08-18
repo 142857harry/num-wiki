@@ -7,7 +7,7 @@ controlled ethereum network is useful as a backend for network integration testi
 developers working on issues related to networking/blockchain synching/message
 propagation, etc or DAPP developers testing multi-block and multi-user scenarios).</p>
 
-<p>We assume you are able to build <code class="language-plaintext highlighter-rouge">geth</code> following the <a href="https://geth.ethereum.org/docs/install-and-build/installing-geth">build instructions</a>.</p>
+<p>We assume you are able to build <code class="language-plaintext highlighter-rouge">geth</code> following the <a href="./Installing-Geth">build instructions</a>.</p>
 
 <h2 id="setting-up-multiple-nodes">Setting up multiple nodes</h2>
 
@@ -118,15 +118,5 @@ I0216 10:01:19.125600 p2p/discover/udp.go:227] Listening, enode://890b6b5367ef60
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bootnode -nodekeyhex dc90f8f7324f1cc7ba52c4077721c939f98a628ed17e51266d01c9cd0294033a
 I0216 10:01:40.094089 p2p/discover/udp.go:227] Listening, enode://890b6b5367ef6072455fedbd7a24ebac239d442b18c5ab9d26f58a349dad35ee5783a0dd543e4f454fed22db9772efe28a3ed6f21e75674ef6203e47803da682@[::]:30301
 </code></pre></div></div>
-
-<h2 id="monitoring-your-nodes">Monitoring your nodes</h2>
-
-<p><a href="https://github.com/ethereum/wiki/wiki/Network-Status">This page</a> describes how to use the
-<a href="https://geth.ethereum.org/docs/getting-started/eth-stats">The Ethereum (centralised) network status monitor</a>. to monitor your nodes.</p>
-
-<p><a href="https://geth.ethereum.org/docs/getting-started/monitoring">This page</a> or <a href="https://github.com/ethersphere/eth-utils">this README</a>
-describes how you set up your own monitoring service for a (private or public) local
-cluster.</p>
-
 
     </div>

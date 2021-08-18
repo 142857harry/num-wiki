@@ -8,7 +8,7 @@
 * [Private Network Tutorial](./Private-Network-Tutorial)
 
 ### Install and Build
-* [Getting Started with Geth](./Getting-Started-with-Geth)
+* [Installing Geth](./Installing-Geth)
 * [Backup & Restore](./Backup-&-Restore)
 * [Cross-Compiling Geth](./Cross-Compiling-Geth)
 
