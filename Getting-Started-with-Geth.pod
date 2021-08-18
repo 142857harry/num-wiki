@@ -9,7 +9,7 @@ standalone pre-built binary, running it as a docker container or building it you
 The guide shows you how to create accounts, sync to a network, and then send transactions
 between accounts.</p>
 
-<p>This guide uses <a href="https://geth.ethereum.org/docs/clef/tutorial">Clef</a>, which is our preferred tool for signing transactions with Geth,
+<p>This guide uses <a href="./#clef">Clef</a>, which is our preferred tool for signing transactions with Geth,
 and will replace Geth’s account management.</p>
 
 <h2 id="initialize-clef">Initialize Clef</h2>
@@ -36,7 +36,7 @@ set a password for each of them, and note the public address for each.</p>
 <h3 id="networks">Networks</h3>
 
 <p>You can connect a Geth node to several different networks using the network name as an argument.
-These include the main Ethereum network, <a href="https://geth.ethereum.org/docs/getting-started/private-net">a private network</a> you create,
+These include the main Ethereum network, <a href="./Private-Network-Tutorial">a private network</a> you create,
 and three test networks that use different consensus algorithms:</p>
 
 <ul>
@@ -81,7 +81,7 @@ headers.</li>
 <h2 id="start-geth-1">Start Geth</h2>
 
 <p>Open another command line window and run command below, which also enables the 
-<a href="https://geth.ethereum.org/docs/clef/tutorial">Geth RPC interface</a> (see below), and sets Clef as the transaction signer.</p>
+<a href="./#clef">Geth RPC interface</a> (see below), and sets Clef as the transaction signer.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth <span class="nt">--goerli</span> <span class="nt">--syncmode</span> <span class="s2">"light"</span> <span class="nt">--http</span> <span class="nt">--signer</span><span class="o">=</span>&lt;CLEF_LOCATION&gt;/clef.ipc
 </code></pre></div></div>
@@ -104,7 +104,7 @@ with accounts, but you need direct access to the node.</p>
 
 <p>RPC allows remote applications to access your node but has limitations and security
 considerations, and by default only allows access to methods in the <code class="language-plaintext highlighter-rouge">eth</code> and <code class="language-plaintext highlighter-rouge">shh</code>
-namespaces. Find out how to override this setting <a href="https://geth.ethereum.org/docs/rpc/server#http-server">in the RPC docs</a>.</p>
+namespaces. Find out how to override this setting <a href="./JSON-RPC-Server#http-server">in the RPC docs</a>.</p>
 
 <h2 id="using-ipc">Using IPC</h2>
 
