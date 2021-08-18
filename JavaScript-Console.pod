@@ -28,8 +28,8 @@ geth attach ws://191.168.1.1:8546
 <p>Note that by default the geth node doesn’t start the HTTP and WebSocket servers and not
 all functionality is provided over these interfaces for security reasons. These defaults
 can be overridden with the <code class="language-plaintext highlighter-rouge">--http.api</code> and <code class="language-plaintext highlighter-rouge">--ws.api</code> arguments when the geth node is
-started, or with <a href="https://geth.ethereum.org/docs/rpc/ns-admin#admin_startrpc">admin.startRPC</a> and
-<a href="https://geth.ethereum.org/docs/rpc/ns-admin#admin_startws">admin.startWS</a>.</p>
+started, or with <a href="./admin-Namespace#admin_startrpc">admin.startRPC</a> and
+<a href="./admin-Namespace#admin_startws">admin.startWS</a>.</p>
 
 <p>If you need log information, start with:</p>
 
