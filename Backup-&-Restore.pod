@@ -9,9 +9,9 @@
 directory locations are platform specific:</p>
 
 <ul>
-  <li>Mac: <code class="language-plaintext highlighter-rouge">~/Library/Ethereum</code></li>
-  <li>Linux: <code class="language-plaintext highlighter-rouge">~/.ethereum</code></li>
-  <li>Windows: <code class="language-plaintext highlighter-rouge">%APPDATA%\Ethereum</code></li>
+  <li>Mac: <code class="language-plaintext highlighter-rouge">~/Library/Pod</code></li>
+  <li>Linux: <code class="language-plaintext highlighter-rouge">~/.pod</code></li>
+  <li>Windows: <code class="language-plaintext highlighter-rouge">%APPDATA%\Pod</code></li>
 </ul>
 
 <p>Accounts are stored in the <code class="language-plaintext highlighter-rouge">keystore</code> subdirectory. The contents of this directories
@@ -26,9 +26,9 @@ in a different location by using a symbolic link.</p>
 
 <h2 id="cleanup">Cleanup</h2>
 
-<p>Geth’s blockchain and state databases can be removed with:</p>
+<p>Gpod’s blockchain and state databases can be removed with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth removedb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod removedb
 </code></pre></div></div>
 
 <p>This is useful for deleting an old chain and sync’ing to a new one. It only affects data
