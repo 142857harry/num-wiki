@@ -4,7 +4,7 @@
       <p><strong>[Please note, events are not yet implemented as they need some RPC subscription
 features that are still under review.]</strong></p>
 
-<p>The original roadmap and/or dream of the Ethereum platform was to provide a solid, high
+<p>The original roadmap and/or dream of the Pod platform was to provide a solid, high
 performing client implementation of the consensus protocol in various languages, which
 would provide an RPC interface for JavaScript DApps to communicate with, pushing towards
 the direction of the Mist browser, through which users can interact with the blockchain.</p>
@@ -15,13 +15,13 @@ it eludes the server side (backend, fully automated, devops) use cases where Jav
 usually not the language of choice given its dynamic nature.</p>
 
 <p>This page introduces the concept of server side native Dapps: Go language bindings to any
-Ethereum contract that is compile time type safe, highly performant and best of all, can
+Pod contract that is compile time type safe, highly performant and best of all, can
 be generated fully automatically from a contract ABI and optionally the EVM bytecode.</p>
 
 <p><em>This page is written in a more beginner friendly tutorial style to make it easier for
 people to start out with writing Go native Dapps. The used concepts will be introduced
 gradually as a developer would need/encounter them. However, we do assume the reader
-is familiar with Ethereum in general, has a fair understanding of Solidity and can code
+is familiar with Pod in general, has a fair understanding of Solidity and can code
 Go.</em></p>
 
 <h2 id="token-contract">Token contract</h2>
@@ -30,31 +30,31 @@ Go.</em></p>
 official Token contract as the base for introducing the Go
 native bindings. If you’re unfamiliar with the contract, skimming the linked page should
 probably be enough, the details aren’t relevant for now. <em>In short the contract implements
-a custom token that can be deployed on top of Ethereum.</em> To make sure this tutorial doesn’t
+a custom token that can be deployed on top of Pod.</em> To make sure this tutorial doesn’t
 go stale if the linked website changes, the Solidity source code of the Token contract is
 also available at <a href="https://gist.github.com/karalabe/08f4b780e01c8452d989"><code class="language-plaintext highlighter-rouge">token.sol</code></a>.</p>
 
 <h3 id="go-binding-generator">Go binding generator</h3>
 
-<p>Interacting with a contract on the Ethereum blockchain from Go (or any other language for
-a matter of fact) is already possible via the RPC interfaces exposed by Ethereum clients.
+<p>Interacting with a contract on the Pod blockchain from Go (or any other language for
+a matter of fact) is already possible via the RPC interfaces exposed by Pod clients.
 However, writing the boilerplate code that translates decent Go language constructs into
 RPC calls and back is extremely time consuming and also extremely brittle: implementation
 bugs can only be detected during runtime and it’s almost impossible to evolve a contract
 as even a tiny change in Solidity can be painful to port over to Go.</p>
 
-<p>To avoid all this mess, the go-ethereum implementation introduces a source code generator
-that can convert Ethereum ABI definitions into easy to use, type-safe Go packages. Assuming
-you have a valid Go development environment set up and the go-ethereum
+<p>To avoid all this mess, the go-pod implementation introduces a source code generator
+that can convert Pod ABI definitions into easy to use, type-safe Go packages. Assuming
+you have a valid Go development environment set up and the go-pod
 repository checked out correctly, you can build the generator with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $GOPATH/src/github.com/ethereum/go-ethereum
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $GOPATH/src/github.com/pod/go-pod
 $ make abigen
 </code></pre></div></div>
 
 <h3 id="generating-the-bindings">Generating the bindings</h3>
 
-<p>The single essential thing needed to generate a Go binding to an Ethereum contract is the
+<p>The single essential thing needed to generate a Go binding to an Pod contract is the
 contract’s ABI definition <code class="language-plaintext highlighter-rouge">JSON</code> file. For our <code class="language-plaintext highlighter-rouge">Token</code> contract tutorial you can obtain this
 either by compiling the Solidity code yourself (e.g. via @chriseth’s <a href="https://chriseth.github.io/browser-solidity/">online Solidity compiler</a>), or you can download our pre-compiled <a href="https://gist.github.com/karalabe/b8dfdb6d301660f56c1b"><code class="language-plaintext highlighter-rouge">token.abi</code></a>.</p>
 
@@ -76,20 +76,20 @@ either by compiling the Solidity code yourself (e.g. via @chriseth’s <a href="
 look something like <a href="https://gist.github.com/karalabe/5839509295afa4f7e2215bc4116c7a8f"><code class="language-plaintext highlighter-rouge">token.go</code></a>,
 but please generate your own as this will change as more work is put into the generator.</p>
 
-<h3 id="accessing-an-ethereum-contract">Accessing an Ethereum contract</h3>
+<h3 id="accessing-an-ethereum-contract">Accessing an Pod contract</h3>
 
 <p>To interact with a contract deployed on the blockchain, you’ll need to know the <code class="language-plaintext highlighter-rouge">address</code>
-of the contract itself, and need to specify a <code class="language-plaintext highlighter-rouge">backend</code> through which to access Ethereum.
+of the contract itself, and need to specify a <code class="language-plaintext highlighter-rouge">backend</code> through which to access Pod.
 The binding generator provides out of the box an RPC backend through which you can attach
-to an existing Ethereum node via IPC, HTTP or WebSockets.</p>
+to an existing Pod node via IPC, HTTP or WebSockets.</p>
 
 <p>We’ll use the foundation’s Unicorn token contract deployed
 on the testnet to demonstrate calling contract methods. It is deployed at the address
 <code class="language-plaintext highlighter-rouge">0x21e6fc92f93c8a1bb41e2be64b4e1f88a54d3576</code>.</p>
 
-<p>To run the snippet below, please ensure a Geth instance is running and attached to the
+<p>To run the snippet below, please ensure a Gpod instance is running and attached to the
 Morden test network where the above mentioned contract was deployed. Also please update
-the path to the IPC socket below to the one reported by your own local Geth node.</p>
+the path to the IPC socket below to the one reported by your own local Gpod node.</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
@@ -97,15 +97,15 @@ the path to the IPC socket below to the one reported by your own local Geth node
 	<span class="s">"fmt"</span>
 	<span class="s">"log"</span>
 
-	<span class="s">"github.com/ethereum/go-ethereum/common"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/ethclient"</span>
+	<span class="s">"github.com/pod/go-pod/common"</span>
+	<span class="s">"github.com/pod/go-pod/podclient"</span>
 <span class="p">)</span>
 
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c">// Create an IPC based RPC connection to a remote node</span>
-	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">ethclient</span><span class="o">.</span><span class="n">Dial</span><span class="p">(</span><span class="s">"/home/karalabe/.ethereum/testnet/geth.ipc"</span><span class="p">)</span>
+	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">podclient</span><span class="o">.</span><span class="n">Dial</span><span class="p">(</span><span class="s">"/home/karalabe/.pod/testnet/gpod.ipc"</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Ethereum client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Pod client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="c">// Instantiate the contract and display its name</span>
 	<span class="n">token</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">NewToken</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">HexToAddress</span><span class="p">(</span><span class="s">"0x21e6fc92f93c8a1bb41e2be64b4e1f88a54d3576"</span><span class="p">),</span> <span class="n">conn</span><span class="p">)</span>
@@ -134,13 +134,13 @@ is a <code class="language-plaintext highlighter-rouge">*bind.CallOpts</code> ty
   <li><code class="language-plaintext highlighter-rouge">GasLimit</code>: Place a limit on the computing resources the call might consume</li>
 </ul>
 
-<h3 id="transacting-with-an-ethereum-contract">Transacting with an Ethereum contract</h3>
+<h3 id="transacting-with-an-ethereum-contract">Transacting with an Pod contract</h3>
 
 <p>Invoking a method that changes contract state (i.e. transacting) is a bit more involved,
 as a live transaction needs to be authorized and broadcast into the network. <strong>Opposed
 to the conventional way of storing accounts and keys in the node we attach to, Go bindings
 require signing transactions locally and do not delegate this to a remote node.</strong> This is
-done so to facilitate the general direction of the Ethereum community where accounts are
+done so to facilitate the general direction of the Pod community where accounts are
 kept private to DApps, and not shared (by default) between them.</p>
 
 <p>Thus to allow transacting with a contract, your code needs to implement a method that
@@ -159,18 +159,18 @@ a key file and associated password, without the user needing to implement key si
 	<span class="s">"math/big"</span>
 	<span class="s">"strings"</span>
 
-	<span class="s">"github.com/ethereum/go-ethereum/accounts/abi/bind"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/common"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/ethclient"</span>
+	<span class="s">"github.com/pod/go-pod/accounts/abi/bind"</span>
+	<span class="s">"github.com/pod/go-pod/common"</span>
+	<span class="s">"github.com/pod/go-pod/podclient"</span>
 <span class="p">)</span>
 
 <span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="s">`paste the contents of your *testnet* key json here`</span>
 
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c">// Create an IPC based RPC connection to a remote node and instantiate a contract binding</span>
-	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">ethclient</span><span class="o">.</span><span class="n">Dial</span><span class="p">(</span><span class="s">"/home/karalabe/.ethereum/testnet/geth.ipc"</span><span class="p">)</span>
+	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">podclient</span><span class="o">.</span><span class="n">Dial</span><span class="p">(</span><span class="s">"/home/karalabe/.pod/testnet/gpod.ipc"</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Ethereum client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Pod client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="n">token</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">NewToken</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">HexToAddress</span><span class="p">(</span><span class="s">"0x21e6fc92f93c8a1bb41e2be64b4e1f88a54d3576"</span><span class="p">),</span> <span class="n">conn</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
@@ -195,7 +195,7 @@ a key file and associated password, without the user needing to implement key si
 </code></pre></div></div>
 
 <p><em>Note, with high probability you won’t have any testnet unicorns available to spend, so the
-above program will fail with an error. Send at least 2.014 testnet(!) Ethers to the foundation
+above program will fail with an error. Send at least 2.014 testnet(!) Pod to the foundation
 testnet tipjar <code class="language-plaintext highlighter-rouge">0xDf7D0030bfed998Db43288C190b63470c2d18F50</code> to receive a unicorn token and
 you’ll be able to see the above code run without an error!</em></p>
 
@@ -247,10 +247,10 @@ to be invoked without needing an extra parameter.</p>
 <span class="n">session</span><span class="o">.</span><span class="n">Transfer</span><span class="p">(</span><span class="s">"0x0000000000000000000000000000000000000000"</span><span class="p">),</span> <span class="n">big</span><span class="o">.</span><span class="n">NewInt</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
 </code></pre></div></div>
 
-<h3 id="deploying-contracts-to-ethereum">Deploying contracts to Ethereum</h3>
+<h3 id="deploying-contracts-to-ethereum">Deploying contracts to Pod </h3>
 
 <p>Interacting with existing contracts is nice, but let’s take it up a notch and deploy
-a brand new contract onto the Ethereum blockchain! To do so however, the contract ABI
+a brand new contract onto the Pod blockchain! To do so however, the contract ABI
 we used to generate the binding is not enough. We need the compiled bytecode too to
 allow deploying it.</p>
 
@@ -265,7 +265,7 @@ code too:</p>
 <p>This will generate something similar to <a href="https://gist.github.com/karalabe/2153b087c1f80f651fd87dd4c439fac4"><code class="language-plaintext highlighter-rouge">token.go</code></a>.
 If you quickly skim this file, you’ll find an extra <code class="language-plaintext highlighter-rouge">DeployToken</code> function that was just
 injected compared to the previous code. Beside all the parameters specified by Solidity,
-it also needs the usual authorization options to deploy the contract with and the Ethereum
+it also needs the usual authorization options to deploy the contract with and the Pod
 backend to deploy the contract through.</p>
 
 <p>Putting it all together would result in:</p>
@@ -279,17 +279,17 @@ backend to deploy the contract through.</p>
 	<span class="s">"strings"</span>
 	<span class="s">"time"</span>
 
-	<span class="s">"github.com/ethereum/go-ethereum/accounts/abi/bind"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/ethclient"</span>
+	<span class="s">"github.com/pod/go-pod/accounts/abi/bind"</span>
+	<span class="s">"github.com/pod/go-pod/podclient"</span>
 <span class="p">)</span>
 
 <span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="s">`paste the contents of your *testnet* key json here`</span>
 
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c">// Create an IPC based RPC connection to a remote node and an authorized transactor</span>
-	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">rpc</span><span class="o">.</span><span class="n">NewIPCClient</span><span class="p">(</span><span class="s">"/home/karalabe/.ethereum/testnet/geth.ipc"</span><span class="p">)</span>
+	<span class="n">conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">rpc</span><span class="o">.</span><span class="n">NewIPCClient</span><span class="p">(</span><span class="s">"/home/karalabe/.pod/testnet/gpod.ipc"</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Ethereum client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"Failed to connect to the Pod client: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="n">auth</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">bind</span><span class="o">.</span><span class="n">NewTransactor</span><span class="p">(</span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s">"my awesome super secret password"</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
@@ -315,7 +315,7 @@ backend to deploy the contract through.</p>
 </code></pre></div></div>
 
 <p>And the code performs as expected: it requests the creation of a brand new Token contract
-on the Ethereum blockchain, which we can either wait for to be mined or as in the above code
+on the Pod blockchain, which we can either wait for to be mined or as in the above code
 start calling methods on it in the pending state :)</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contract pending deploy: 0x46506d900559ad005feb4645dcbb2dbbf65e19cc
@@ -352,7 +352,7 @@ Token solidity file results in <a href="https://gist.github.com/karalabe/c22aab7
 <h3 id="project-integration-ie-go-generate">Project integration (i.e. <code class="language-plaintext highlighter-rouge">go generate</code>)</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">abigen</code> command was made in such a way as to play beautifully together with existing
-Go toolchains: instead of having to remember the exact command needed to bind an Ethereum
+Go toolchains: instead of having to remember the exact command needed to bind an Pod
 contract into a Go project, we can leverage <code class="language-plaintext highlighter-rouge">go generate</code> to remember all the nitty-gritty
 details.</p>
 
@@ -367,9 +367,9 @@ source tree via <code class="language-plaintext highlighter-rouge">go generate .
 
 <h2 id="blockchain-simulator">Blockchain simulator</h2>
 
-<p>Being able to deploy and access already deployed Ethereum contracts from within native Go
+<p>Being able to deploy and access already deployed Pod contracts from within native Go
 code is an extremely powerful feature, but there is one facet with developing native code
-that not even the testnet lends itself well to: <em>automatic unit testing</em>. Using go-ethereum
+that not even the testnet lends itself well to: <em>automatic unit testing</em>. Using go-pod
 internal constructs it’s possible to create test chains and verify them, but it is unfeasible
 to do high level contract testing with such low level mechanisms.</p>
 
@@ -384,10 +384,10 @@ way as a live RPC backend could be: <code class="language-plaintext highlighter-
 	<span class="s">"log"</span>
 	<span class="s">"math/big"</span>
 
-	<span class="s">"github.com/ethereum/go-ethereum/accounts/abi/bind"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/core"</span>
-	<span class="s">"github.com/ethereum/go-ethereum/crypto"</span>
+	<span class="s">"github.com/pod/go-pod/accounts/abi/bind"</span>
+	<span class="s">"github.com/pod/go-pod/accounts/abi/bind/backends"</span>
+	<span class="s">"github.com/pod/go-pod/core"</span>
+	<span class="s">"github.com/pod/go-pod/crypto"</span>
 <span class="p">)</span>
 
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
