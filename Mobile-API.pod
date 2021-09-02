@@ -1,7 +1,7 @@
    <div class="col-md-9" id="content">
    
       
-      <p>The Ethereum blockchain along with its two extension protocols Whisper and Swarm was
+      <p>The Pod blockchain along with its two extension protocols Whisper and Swarm was
 originally conceptualized to become the supporting pillar of web3, providing the
 consensus, messaging and storage backbone for a new generation of distributed (actually,
 decentralized) applications called DApps.</p>
@@ -16,8 +16,8 @@ it became apparent that providing programmatic access to the web3 pillars would 
 door towards a new class of applications. As such, the second incarnation of the web
 dream is to open up all our technologies for other projects as reusable components.</p>
 
-<p>Starting with the 1.5 release family of <code class="language-plaintext highlighter-rouge">go-ethereum</code>, we transitioned away from providing
-only a full blown Ethereum client and started shipping official Go packages that could be
+<p>Starting with the 1.5 release family of <code class="language-plaintext highlighter-rouge">go-pod</code>, we transitioned away from providing
+only a full blown Gpod client and started shipping official Go packages that could be
 embedded into third party desktop and server applications. It took only a small leap from
 here to begin porting our code to mobile platforms.</p>
 
@@ -30,11 +30,11 @@ areas:</p>
   <li>Simplified client side account management</li>
   <li>Remote node interfacing via different transports</li>
   <li>Contract interactions through auto-generated bindings</li>
-  <li>In-process Ethereum, Whisper and Swarm peer-to-peer node</li>
+  <li>In-process Pod, Whisper and Swarm peer-to-peer node</li>
 </ul>
 
 <p>You can watch a quick overview about these in Peter’s (@karalabe) talk titled “Import
-Geth: Ethereum from Go and beyond”, presented at the Ethereum Devcon2 developer conference
+Gpod: Pod from Go and beyond”, presented at the Pod Devcon2 developer conference
 in September, 2016 (Shanghai). Slides are <a href="https://ethereum.karalabe.com/talks/2016-devcon.html">available
 here</a>.</p>
 
@@ -42,23 +42,23 @@ here</a>.</p>
 
 <h2 id="library-bundles">Library bundles</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">go-ethereum</code> mobile library is distributed either as an Android <code class="language-plaintext highlighter-rouge">.aar</code> archive
+<p>The <code class="language-plaintext highlighter-rouge">go-pod</code> mobile library is distributed either as an Android <code class="language-plaintext highlighter-rouge">.aar</code> archive
 (containing binaries for <code class="language-plaintext highlighter-rouge">arm-7</code>, <code class="language-plaintext highlighter-rouge">arm64</code>, <code class="language-plaintext highlighter-rouge">x86</code> and <code class="language-plaintext highlighter-rouge">x64</code>); or as an iOS XCode framework
 (containing binaries for <code class="language-plaintext highlighter-rouge">arm-7</code>, <code class="language-plaintext highlighter-rouge">arm64</code> and <code class="language-plaintext highlighter-rouge">x86</code>). We do not provide library bundles
 for Windows phone the moment.</p>
 
 <h3 id="android-archive">Android archive</h3>
 
-<p>The simplest way to use <code class="language-plaintext highlighter-rouge">go-ethereum</code> in your Android project is through a Maven
+<p>The simplest way to use <code class="language-plaintext highlighter-rouge">go-pod</code> in your Android project is through a Maven
 dependency. We provide bundles of all our stable releases (starting from v1.5.0) through
 Maven Central, and also provide the latest develop bundle through the Sonatype OSS
 repository.</p>
 
 <h4 id="stable-dependency-maven-central">Stable dependency (Maven Central)</h4>
 
-<p>To add an Android dependency to the <strong>stable</strong> library release of <code class="language-plaintext highlighter-rouge">go-ethereum</code>, you’ll
+<p>To add an Android dependency to the <strong>stable</strong> library release of <code class="language-plaintext highlighter-rouge">go-pod</code>, you’ll
 need to ensure that the Maven Central repository is enabled in your Android project, and
-that the <code class="language-plaintext highlighter-rouge">go-ethereum</code> code is listed as a required dependency of your application. You
+that the <code class="language-plaintext highlighter-rouge">go-pod</code> code is listed as a required dependency of your application. You
 can do both of these by editing the <code class="language-plaintext highlighter-rouge">build.gradle</code> script in your Android app’s folder:</p>
 
 <div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">repositories</span> <span class="o">{</span>
@@ -67,15 +67,15 @@ can do both of these by editing the <code class="language-plaintext highlighter-
 
 <span class="k">dependencies</span> <span class="o">{</span>
     <span class="c1">// All your previous dependencies</span>
-    <span class="n">compile</span> <span class="s1">'org.ethereum:geth:1.5.2'</span> <span class="c1">// Change the version to the latest release</span>
+    <span class="n">compile</span> <span class="s1">'org.pod:gpod:1.5.2'</span> <span class="c1">// Change the version to the latest release</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
 <h4 id="develop-dependency-sonatype">Develop dependency (Sonatype)</h4>
 
-<p>To add an Android dependency to the current version of <code class="language-plaintext highlighter-rouge">go-ethereum</code>, you’ll need to
+<p>To add an Android dependency to the current version of <code class="language-plaintext highlighter-rouge">go-pod</code>, you’ll need to
 ensure that the Sonatype snapshot repository is enabled in your Android project, and that
-the <code class="language-plaintext highlighter-rouge">go-ethereum</code> code is listed as a required <code class="language-plaintext highlighter-rouge">SNAPSHOT</code> dependency of your application.
+the <code class="language-plaintext highlighter-rouge">go-pod</code> code is listed as a required <code class="language-plaintext highlighter-rouge">SNAPSHOT</code> dependency of your application.
 You can do both of these by editing the <code class="language-plaintext highlighter-rouge">build.gradle</code> script in your Android app’s
 folder:</p>
 
@@ -87,7 +87,7 @@ folder:</p>
 
 <span class="k">dependencies</span> <span class="o">{</span>
     <span class="c1">// All your previous dependencies</span>
-    <span class="n">compile</span> <span class="s1">'org.ethereum:geth:1.5.3-SNAPSHOT'</span> <span class="c1">// Change the version to the latest release</span>
+    <span class="n">compile</span> <span class="s1">'org.pod:gpod:1.5.3-SNAPSHOT'</span> <span class="c1">// Change the version to the latest release</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -95,24 +95,24 @@ folder:</p>
 
 <p>If you prefer not to depend on Maven Central or Sonatype; or would like to access an older
 develop build not available any more as an online dependency, you can download any bundle
-directly from <a href="https://geth.ethereum.org/downloads/">our website</a> and insert it into your
+directly from <a href="https://gpod.pod.org/downloads/">our website</a> and insert it into your
 project in Android Studio via <code class="language-plaintext highlighter-rouge">File -&gt; New -&gt; New module... -&gt; Import .JAR/.AAR Package</code>.</p>
 
 <p>You will also need to configure <code class="language-plaintext highlighter-rouge">gradle</code> to link the mobile library bundle to your
 application. This can be done by adding a new entry to the <code class="language-plaintext highlighter-rouge">dependencies</code> section of your
-<code class="language-plaintext highlighter-rouge">build.gradle</code> script, pointing it to the module you just added (named <code class="language-plaintext highlighter-rouge">geth</code> by default).</p>
+<code class="language-plaintext highlighter-rouge">build.gradle</code> script, pointing it to the module you just added (named <code class="language-plaintext highlighter-rouge">gpod</code> by default).</p>
 
 <div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">dependencies</span> <span class="o">{</span>
     <span class="c1">// All your previous dependencies</span>
-    <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">':geth'</span><span class="o">)</span>
+    <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">':gpod'</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
 <h4 id="manual-builds">Manual builds</h4>
 
-<p>Lastly, if you would like to make modifications to the <code class="language-plaintext highlighter-rouge">go-ethereum</code> mobile code and/or
+<p>Lastly, if you would like to make modifications to the <code class="language-plaintext highlighter-rouge">go-pod</code> mobile code and/or
 build it yourself locally instead of downloading a pre-built bundle, you can do so using a
-<code class="language-plaintext highlighter-rouge">make</code> command. This will create an Android archive called <code class="language-plaintext highlighter-rouge">geth.aar</code> in the <code class="language-plaintext highlighter-rouge">build/bin</code>
+<code class="language-plaintext highlighter-rouge">make</code> command. This will create an Android archive called <code class="language-plaintext highlighter-rouge">gpod.aar</code> in the <code class="language-plaintext highlighter-rouge">build/bin</code>
 folder that you can import into your Android Studio as described above.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make android
@@ -123,21 +123,21 @@ Import <span class="s2">"build/bin/geth.aar"</span> to use the library.
 
 <h3 id="ios-framework">iOS framework</h3>
 
-<p>The simplest way to use <code class="language-plaintext highlighter-rouge">go-ethereum</code> in your iOS project is through a
+<p>The simplest way to use <code class="language-plaintext highlighter-rouge">go-pod</code> in your iOS project is through a
 <a href="https://cocoapods.org/">CocoaPods</a> dependency. We provide bundles of all our stable
 releases (starting from v1.5.3) and also latest develop versions.</p>
 
 <h4 id="automatic-dependency">Automatic dependency</h4>
 
-<p>To add an iOS dependency to the current stable or latest develop version of <code class="language-plaintext highlighter-rouge">go-ethereum</code>,
+<p>To add an iOS dependency to the current stable or latest develop version of <code class="language-plaintext highlighter-rouge">go-pod</code>,
 you’ll need to ensure that your iOS XCode project is configured to use CocoaPods.
 Detailing that is out of scope in this document, but you can find a guide in the upstream
 <a href="https://guides.cocoapods.org/using/using-cocoapods.html">Using CocoaPods</a> page.
-Afterwards you can edit your <code class="language-plaintext highlighter-rouge">Podfile</code> to list <code class="language-plaintext highlighter-rouge">go-ethereum</code> as a dependency:</p>
+Afterwards you can edit your <code class="language-plaintext highlighter-rouge">Podfile</code> to list <code class="language-plaintext highlighter-rouge">go-pod</code> as a dependency:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">target</span> <span class="s1">'MyApp'</span> <span class="k">do</span>
     <span class="c1"># All your previous dependencies</span>
-    <span class="n">pod</span> <span class="s1">'Geth'</span><span class="p">,</span> <span class="s1">'1.5.4'</span> <span class="c1"># Change the version to the latest release</span>
+    <span class="n">pod</span> <span class="s1">'Gpod'</span><span class="p">,</span> <span class="s1">'1.5.4'</span> <span class="c1"># Change the version to the latest release</span>
 <span class="k">end</span>
 </code></pre></div></div>
 
@@ -156,20 +156,20 @@ XCode via <code class="language-plaintext highlighter-rouge">Project Settings -&
 that either using a GUI tool or from the command line via (replace the archive with your
 downloaded file):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -zxvf geth-ios-all-1.5.3-unstable-e05d35e6.tar.gz
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -zxvf gpod-ios-all-1.5.3-unstable-e05d35e6.tar.gz
 </code></pre></div></div>
 
 <h4 id="manual-builds-1">Manual builds</h4>
 
-<p>Lastly, if you would like to make modifications to the <code class="language-plaintext highlighter-rouge">go-ethereum</code> mobile code and/or
+<p>Lastly, if you would like to make modifications to the <code class="language-plaintext highlighter-rouge">go-pod</code> mobile code and/or
 build it yourself locally instead of downloading a pre-built bundle, you can do so using a
-<code class="language-plaintext highlighter-rouge">make</code> command. This will create an iOS XCode framework called <code class="language-plaintext highlighter-rouge">Geth.framework</code> in the
+<code class="language-plaintext highlighter-rouge">make</code> command. This will create an iOS XCode framework called <code class="language-plaintext highlighter-rouge">Gpod.framework</code> in the
 <code class="language-plaintext highlighter-rouge">build/bin</code> folder that you can import into XCode as described above.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make ios
 <span class="o">[</span>...]
 Done building.
-Import <span class="s2">"build/bin/Geth.framework"</span> to use the library.
+Import <span class="s2">"build/bin/Gpod.framework"</span> to use the library.
 </code></pre></div></div>
 
     </div>
