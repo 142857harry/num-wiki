@@ -1,17 +1,17 @@
    <div class="col-md-9" id="content">
 
       
-      <p>Geth supports all standard web3 JSON-RPC APIs. You can find documentation for
-these APIs on the <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC">Ethereum Wiki JSON-RPC page</a>.</p>
+      <p>Gpod supports all standard web3 JSON-RPC APIs. You can find documentation for
+these APIs on the <a href="https://github.com/pod/wiki/wiki/JSON-RPC">Pod Wiki JSON-RPC page</a>.</p>
 
-<p>JSON-RPC is provided on multiple transports. Geth supports JSON-RPC over HTTP,
+<p>JSON-RPC is provided on multiple transports. Gpod supports JSON-RPC over HTTP,
 WebSocket and Unix Domain Sockets. Transports must be enabled through
 command-line flags.</p>
 
-<p>Ethereum JSON-RPC APIs use a name-space system. RPC methods are grouped into
+<p>Pod JSON-RPC APIs use a name-space system. RPC methods are grouped into
 several categories depending on their purpose. All method names are composed of
 the namespace, an underscore, and the actual method name within the namespace.
-For example, the <code class="language-plaintext highlighter-rouge">eth_call</code> method resides in the <code class="language-plaintext highlighter-rouge">eth</code> namespace.</p>
+For example, the <code class="language-plaintext highlighter-rouge">pod_call</code> method resides in the <code class="language-plaintext highlighter-rouge">pod</code> namespace.</p>
 
 <p>Access to RPC methods can be enabled on a per-namespace basis. Find
 documentation for individual namespaces in the sidebar.</p>
@@ -20,25 +20,25 @@ documentation for individual namespaces in the sidebar.</p>
 
 <p>To enable the HTTP server, use the <code class="language-plaintext highlighter-rouge">--http</code> flag.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --http
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --http
 </code></pre></div></div>
 
-<p>By default, geth accepts connections from the loopback interface (127.0.0.1).
+<p>By default, gpod accepts connections from the loopback interface (127.0.0.1).
 The default listening port is 8545. You can customize address and port using the
 <code class="language-plaintext highlighter-rouge">--http.port</code> and <code class="language-plaintext highlighter-rouge">--http.addr</code> flags.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --http --http.port 3334
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --http --http.port 3334
 </code></pre></div></div>
 
 <p>JSON-RPC method namespaces must be whitelisted in order to be available through
 the HTTP server. An RPC error with error code <code class="language-plaintext highlighter-rouge">-32602</code> is generated if you call a
-namespace that isn’t whitelisted. The default whitelist allows access to the “eth”
+namespace that isn’t whitelisted. The default whitelist allows access to the “pod”
 and “shh” namespaces. To enable access to other APIs like account management (“personal”)
 and debugging (“debug”), they must be configured via the <code class="language-plaintext highlighter-rouge">--http.api</code> flag. We do
 not recommend enabling such APIs over HTTP, however, since access to these
 methods increases the attack surface.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --http --http.api personal,eth,net,web3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --http --http.api personal,pod,net,web3
 </code></pre></div></div>
 
 <p>Since the HTTP server is reachable from any local application, additional
@@ -46,10 +46,10 @@ protection is built into the server to prevent misuse of the API from web pages.
 If you want enable access to the API from a web page, you must configure the
 server to accept Cross-Origin requests with the <code class="language-plaintext highlighter-rouge">--http.corsdomain</code> flag.</p>
 
-<p>Example: if you want to use <a href="https://remix.ethereum.org/">Remix</a> with geth, allow requests from the
+<p>Example: if you want to use <a href="https://remix.ethereum.org/">Remix</a> with gpod, allow requests from the
 remix domain.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --http --http.corsdomain https://remix.ethereum.org
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --http --http.corsdomain https://remix.ethereum.org
 </code></pre></div></div>
 
 <p>Use <code class="language-plaintext highlighter-rouge">--http.corsdomain '*'</code> to enable access from any origin.</p>
@@ -61,13 +61,13 @@ enable WebSocket access, use <code class="language-plaintext highlighter-rouge">
 The <code class="language-plaintext highlighter-rouge">--ws.addr</code>, <code class="language-plaintext highlighter-rouge">--ws.port</code> and <code class="language-plaintext highlighter-rouge">--ws.api</code> flags can be used to customize settings
 for the WebSocket server.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --ws --ws.port 3334 --ws.api eth,net,web3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --ws --ws.port 3334 --ws.api pod,net,web3
 </code></pre></div></div>
 
 <p>Cross-Origin request protection also applies to the WebSocket server. Use the
 <code class="language-plaintext highlighter-rouge">--ws.origins</code> flag to allow access to the server from web pages:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --ws --ws.origins http://myapp.example.com
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --ws --ws.origins http://myapp.example.com
 </code></pre></div></div>
 
 <p>As with <code class="language-plaintext highlighter-rouge">--http.corsdomain</code>, using <code class="language-plaintext highlighter-rouge">--ws.origins '*'</code> allows access from any origin.</p>
@@ -78,14 +78,14 @@ for the WebSocket server.</p>
 by default and has access to all JSON-RPC namespaces.</p>
 
 <p>The listening socket is placed into the data directory by default. On Linux and macOS,
-the default location of the geth socket is</p>
+the default location of the gpod socket is</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.ethereum/geth.ipc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.pod/gpod.ipc
 </code></pre></div></div>
 
-<p>On Windows, IPC is provided via named pipes. The default location of the geth pipe is:</p>
+<p>On Windows, IPC is provided via named pipes. The default location of the gpod pipe is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\.\pipe\geth.ipc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\.\pipe\gpod.ipc
 </code></pre></div></div>
 
 <p>You can configure the location of the socket using the <code class="language-plaintext highlighter-rouge">--ipcpath</code> flag. IPC can
