@@ -211,7 +211,7 @@ format to the newest format or change the password for an account.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod wallet import /path/to/my/presale.wallet
 </code></pre></div></div>
 
-<p>will prompt for your password and imports your ether presale account. It can be used
+<p>will prompt for your password and imports your pod presale account. It can be used
 non-interactively with the –password option taking a passwordfile as argument containing
 the wallet password in cleartext.</p>
 
