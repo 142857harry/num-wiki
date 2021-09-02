@@ -9,7 +9,7 @@ mining specific settings.</p>
   <li><a href="#miner_setgasprice" id="markdown-toc-miner_setgasprice">miner_setGasPrice</a></li>
   <li><a href="#miner_start" id="markdown-toc-miner_start">miner_start</a></li>
   <li><a href="#miner_stop" id="markdown-toc-miner_stop">miner_stop</a></li>
-  <li><a href="#miner_setetherbase" id="markdown-toc-miner_setetherbase">miner_setEtherbase</a></li>
+  <li><a href="#miner_setetherbase" id="markdown-toc-miner_setetherbase">miner_setPoderbase</a></li>
   <li><a href="#miner_setgaslimit" id="markdown-toc-miner_setgaslimit">miner_setGasLimit</a></li>
 </ul>
 
@@ -147,9 +147,9 @@ if need be.</p>
   </tbody>
 </table>
 
-<h3 id="miner_setetherbase">miner_setEtherbase</h3>
+<h3 id="miner_setetherbase">miner_setPoderbase</h3>
 
-<p>Sets the etherbase, where mining rewards will go.</p>
+<p>Sets the poderbase, where mining rewards will go.</p>
 
 <table>
   <thead>
@@ -161,15 +161,15 @@ if need be.</p>
   <tbody>
     <tr>
       <td style="text-align: left">Go</td>
-      <td><code class="language-plaintext highlighter-rouge">miner.SetEtherbase(common.Address) bool</code></td>
+      <td><code class="language-plaintext highlighter-rouge">miner.SetPoderbase(common.Address) bool</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Console</td>
-      <td><code class="language-plaintext highlighter-rouge">miner.setEtherbase(address)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">miner.setPoderbase(address)</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RPC</td>
-      <td><code class="language-plaintext highlighter-rouge">{"method": "miner_setEtherbase", "params": [address]}</code></td>
+      <td><code class="language-plaintext highlighter-rouge">{"method": "miner_setPoderbase", "params": [address]}</code></td>
     </tr>
   </tbody>
 </table>
