@@ -5,8 +5,8 @@
 <p>It enables usecases like the following:</p>
 
 <ul>
-  <li>I want to auto-approve transactions with contract <code class="language-plaintext highlighter-rouge">CasinoDapp</code>, with up to <code class="language-plaintext highlighter-rouge">0.05 ether</code> in value to maximum <code class="language-plaintext highlighter-rouge">1 ether</code> per 24h period</li>
-  <li>I want to auto-approve transaction to contract <code class="language-plaintext highlighter-rouge">EthAlarmClock</code> with <code class="language-plaintext highlighter-rouge">data</code>=<code class="language-plaintext highlighter-rouge">0xdeadbeef</code>, if <code class="language-plaintext highlighter-rouge">value=0</code>, <code class="language-plaintext highlighter-rouge">gas &lt; 44k</code> and <code class="language-plaintext highlighter-rouge">gasPrice &lt; 40Gwei</code></li>
+  <li>I want to auto-approve transactions with contract <code class="language-plaintext highlighter-rouge">CasinoDapp</code>, with up to <code class="language-plaintext highlighter-rouge">0.05 pod</code> in value to maximum <code class="language-plaintext highlighter-rouge">1 pod</code> per 24h period</li>
+  <li>I want to auto-approve transaction to contract <code class="language-plaintext highlighter-rouge">PodAlarmClock</code> with <code class="language-plaintext highlighter-rouge">data</code>=<code class="language-plaintext highlighter-rouge">0xdeadbeef</code>, if <code class="language-plaintext highlighter-rouge">value=0</code>, <code class="language-plaintext highlighter-rouge">gas &lt; 44k</code> and <code class="language-plaintext highlighter-rouge">gasPrice &lt; 40Gwei</code></li>
 </ul>
 
 <p>The two main features that are required for this to work well are;</p>
@@ -117,7 +117,7 @@ invokes the corresponding method. In doing so, there are three possible outcomes
 <h5 id="security-of-implementation">Security of implementation</h5>
 
 <p>The drawbacks of this very flexible solution is that the <code class="language-plaintext highlighter-rouge">signer</code> needs to contain a javascript engine. This is pretty simple to implement, since it’s already
-implemented for <code class="language-plaintext highlighter-rouge">geth</code>. There are no known security vulnerabilities in, nor have we had any security-problems with it so far.</p>
+implemented for <code class="language-plaintext highlighter-rouge">gpod</code>. There are no known security vulnerabilities in, nor have we had any security-problems with it so far.</p>
 
 <p>The javascript engine would be an added attack surface; but if the validation of <code class="language-plaintext highlighter-rouge">rulesets</code> is made good (with hash-based attestation), the actual javascript cannot be considered
 an attack surface – if an attacker can control the ruleset, a much simpler attack would be to implement an “always-approve” rule instead of exploiting the js vm. The only benefit
@@ -180,7 +180,7 @@ imagine leveraging OS-level keychains where supported. The setup is however in g
 <span class="c1">// Time window: 1 week</span>
 <span class="kd">var</span> <span class="nb">window</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">*</span> <span class="mi">3600</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">7</span><span class="p">;</span>
 
-<span class="c1">// Limit : 1 ether</span>
+<span class="c1">// Limit : 1 pod</span>
 <span class="kd">var</span> <span class="nx">limit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BigNumber</span><span class="p">(</span><span class="dl">"</span><span class="s2">1e18</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">isLimitOk</span><span class="p">(</span><span class="nx">transaction</span><span class="p">)</span> <span class="p">{</span>
