@@ -1,16 +1,16 @@
   <div class="col-md-9" id="content">
       
-      <p>To use Geth, you need to install it first. You can install Geth in a variety
+      <p>To use Gpod, you need to install it first. You can install Gpod in a variety
 of ways that you can find in the “<a href="./#install-and-build">Install and Build</a>” section.
 These include installing it via your favorite package manager, downloading a
 standalone pre-built binary, running it as a docker container or building it yourself.</p>
 
-<p>For this guide, we assume you have Geth installed and are ready to find out how to use it.
+<p>For this guide, we assume you have Gpod installed and are ready to find out how to use it.
 The guide shows you how to create accounts, sync to a network, and then send transactions
 between accounts.</p>
 
-<p>This guide uses <a href="./#clef">Clef</a>, which is our preferred tool for signing transactions with Geth,
-and will replace Geth’s account management.</p>
+<p>This guide uses <a href="./#clef">Clef</a>, which is our preferred tool for signing transactions with Gpod,
+and will replace Gpod’s account management.</p>
 
 <h2 id="initialize-clef">Initialize Clef</h2>
 
@@ -31,12 +31,12 @@ set a password for each of them, and note the public address for each.</p>
 
 <p>Clef outputs a debug message about <code class="language-plaintext highlighter-rouge">Failed to reload keystore contents</code>, we fix that in a later step.</p>
 
-<h2 id="start-geth">Start Geth</h2>
+<h2 id="start-geth">Start Gpod</h2>
 
 <h3 id="networks">Networks</h3>
 
-<p>You can connect a Geth node to several different networks using the network name as an argument.
-These include the main Ethereum network, <a href="./Private-Network-Tutorial">a private network</a> you create,
+<p>You can connect a Gpod node to several different networks using the network name as an argument.
+These include the main POD network, <a href="./Private-Network-Tutorial">a private network</a> you create,
 and three test networks that use different consensus algorithms:</p>
 
 <ul>
@@ -50,7 +50,7 @@ outgoing access from your node to that port.</p>
 
 <h3 id="sync-modes">Sync modes</h3>
 
-<p>You can start Geth in one of three different sync modes using the <code class="language-plaintext highlighter-rouge">--syncmode "&lt;mode&gt;"</code>
+<p>You can start Gpod in one of three different sync modes using the <code class="language-plaintext highlighter-rouge">--syncmode "&lt;mode&gt;"</code>
 argument that determines what sort of node it is in the network.</p>
 
 <p>These are:</p>
