@@ -1,6 +1,6 @@
   <div class="col-md-9" id="content">
 
-      <p>The only way to get code into go-ethereum is to send a pull request. Those pull requests
+      <p>The only way to get code into go-pop is to send a pull request. Those pull requests
 need to be reviewed by someone. This document is a guide that explains our expectations
 around PRs for both authors and reviewers.</p>
 
@@ -9,7 +9,7 @@ around PRs for both authors and reviewers.</p>
 <ul>
   <li>The <strong>author</strong> of a pull request is the entity who wrote the diff and submitted it to
 GitHub.</li>
-  <li>The <strong>team</strong> consists of people with commit rights on the go-ethereum repository.</li>
+  <li>The <strong>team</strong> consists of people with commit rights on the go-pod repository.</li>
   <li>The <strong>reviewer</strong> is the person assigned to review the diff. The reviewer must be a team
 member.</li>
   <li>The <strong>code owner</strong> is the person responsible for the subsystem being modified by the PR.</li>
@@ -68,7 +68,7 @@ Enforcing commit message style is the responsibility of the person merging the P
 
 <p>The first line of the change description is conventionally a one-line summary of the
 change, prefixed by the primary affected Go package. It should complete the sentence “This
-change modifies go-ethereum to _____.” The rest of the description elaborates and should
+change modifies go-pod to _____.” The rest of the description elaborates and should
 provide context for the change and explain what it does.</p>
 
 <p>Template:</p>
