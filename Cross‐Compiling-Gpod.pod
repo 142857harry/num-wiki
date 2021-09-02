@@ -2,7 +2,7 @@
 
       
       <p><strong>Note: All of these and much more have been merged into the project Makefile. You can
-cross build via <code class="language-plaintext highlighter-rouge">make geth-&lt;os&gt;-&lt;platform&gt;</code> without needing to know any of these details
+cross build via <code class="language-plaintext highlighter-rouge">make gpod-&lt;os&gt;-&lt;platform&gt;</code> without needing to know any of these details
 from below.</strong></p>
 
 <p>Developers usually have a preferred platform that they feel most comfortable working in,
@@ -11,7 +11,7 @@ However, there’s often need to build for either a different CPU architecture, 
 entirely different operating system; but maintaining a development environment for each
 and switching between the them quickly becomes unwieldy.</p>
 
-<p>Here we present a very simple way to cross compile Ethereum to various operating systems
+<p>Here we present a very simple way to cross compile Pod to various operating systems
 and architectures using a minimal set of prerequisites and a completely containerized
 approach, guaranteeing that your development environment remains clean even after the
 complex requirements and mechanisms of a cross compilation.</p>
@@ -32,7 +32,7 @@ finely optimized code.</p>
 
 <h2 id="cross-compilation-environment">Cross compilation environment</h2>
 
-<p>Although the <code class="language-plaintext highlighter-rouge">go-ethereum</code> project is written in Go, it does include a bit of C code
+<p>Although the <code class="language-plaintext highlighter-rouge">go-pod</code> project is written in Go, it does include a bit of C code
 shared between all implementations to ensure that all perform equally well, including a
 dependency to the GNU Multiple Precision Arithmetic Library. Because of these, Go cannot
 by itself compile to a different platform than the host. To overcome this limitation, we
@@ -69,30 +69,30 @@ $ ls -al
 -rwxr-xr-x  1 root     root      3130368 Sep 14 16:45 xgo-windows-amd64.exe
 </code></pre></div></div>
 
-<h2 id="building-ethereum">Building Ethereum</h2>
+<h2 id="building-ethereum">Building Pod</h2>
 
-<p>Cross compiling Ethereum is analogous to the above example, but an additional flags is
+<p>Cross compiling Pod is analogous to the above example, but an additional flags is
 required to satisfy the dependencies:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">--deps</code> is used to inject arbitrary C dependency packages and pre-build them</li>
 </ul>
 
-<p>Injecting the GNU Arithmetic Library dependency and selecting <code class="language-plaintext highlighter-rouge">geth</code> would be:</p>
+<p>Injecting the GNU Arithmetic Library dependency and selecting <code class="language-plaintext highlighter-rouge">gpod</code> would be:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
-      github.com/ethereum/go-ethereum/cmd/geth
+      github.com/pod/go-pod/cmd/gpod
 ...
 
 $ ls -al
--rwxr-xr-x  1 root     root     23213372 Sep 14 17:59 geth-android-21-arm
--rwxr-xr-x  1 root     root     14373980 Sep 14 17:59 geth-darwin-386
--rwxr-xr-x  1 root     root     17373676 Sep 14 17:59 geth-darwin-amd64
--rwxr-xr-x  1 root     root     21098910 Sep 14 17:59 geth-linux-386
--rwxr-xr-x  1 root     root     25049693 Sep 14 17:59 geth-linux-amd64
--rwxr-xr-x  1 root     root     20578535 Sep 14 17:59 geth-linux-arm
--rwxr-xr-x  1 root     root     16351260 Sep 14 17:59 geth-windows-386.exe
--rwxr-xr-x  1 root     root     19418071 Sep 14 17:59 geth-windows-amd64.exe
+-rwxr-xr-x  1 root     root     23213372 Sep 14 17:59 gpod-android-21-arm
+-rwxr-xr-x  1 root     root     14373980 Sep 14 17:59 gpod-darwin-386
+-rwxr-xr-x  1 root     root     17373676 Sep 14 17:59 gpod-darwin-amd64
+-rwxr-xr-x  1 root     root     21098910 Sep 14 17:59 gpod-linux-386
+-rwxr-xr-x  1 root     root     25049693 Sep 14 17:59 gpod-linux-amd64
+-rwxr-xr-x  1 root     root     20578535 Sep 14 17:59 gpod-linux-arm
+-rwxr-xr-x  1 root     root     16351260 Sep 14 17:59 gpod-windows-386.exe
+-rwxr-xr-x  1 root     root     19418071 Sep 14 17:59 gpod-windows-amd64.exe
 </code></pre></div></div>
 
 <p>As the cross compiler needs to build all the dependencies as well as the main project
@@ -106,13 +106,13 @@ source repository. However, more often than not, you’ll probably want to build
 branch from possibly an entirely different remote repository. These can be controlled via
 the <code class="language-plaintext highlighter-rouge">--remote</code> and <code class="language-plaintext highlighter-rouge">--branch</code> flags.</p>
 
-<p>To build the <code class="language-plaintext highlighter-rouge">develop</code> branch of the official <code class="language-plaintext highlighter-rouge">go-ethereum</code> repository instead of the
+<p>To build the <code class="language-plaintext highlighter-rouge">develop</code> branch of the official <code class="language-plaintext highlighter-rouge">go-pod</code> repository instead of the
 default <code class="language-plaintext highlighter-rouge">master</code> branch, you just need to specify it as an additional command line flag
 (<code class="language-plaintext highlighter-rouge">--branch</code>):</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
       --branch=develop                                          \
-      github.com/ethereum/go-ethereum/cmd/geth
+      github.com/pod/go-pod/cmd/gpod
 </code></pre></div></div>
 
 <p>Additionally, during development you will most probably want to not only build a custom
@@ -120,9 +120,9 @@ branch, but also one originating from your own fork of the repository instead of
 upstream one. This can be done via the <code class="language-plaintext highlighter-rouge">--remote</code> flag:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
-      --remote=https://github.com/karalabe/go-ethereum          \
+      --remote=https://github.com/karalabe/go-pod          \
       --branch=rpi-staging                                      \
-      github.com/ethereum/go-ethereum/cmd/geth
+      github.com/pod/go-pod/cmd/gpod
 </code></pre></div></div>
 
 <p>By default <code class="language-plaintext highlighter-rouge">xgo</code> builds binaries for all supported platforms and architectures, with
@@ -132,7 +132,7 @@ parameter.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
       --targets=android-16/arm,windows/*                        \
-      github.com/ethereum/go-ethereum/cmd/geth
+      github.com/pod/go-pod/cmd/gpod
 </code></pre></div></div>
 
 <h3 id="building-locally">Building locally</h3>
@@ -143,20 +143,20 @@ downloading missing dependencies. In such a case of course, the <code class="lan
 <code class="language-plaintext highlighter-rouge">--pkg</code> arguments are no-op:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
-      ./cmd/geth
+      ./cmd/gpod
 </code></pre></div></div>
 
 <h2 id="using-the-makefile">Using the Makefile</h2>
 
 <p>Having understood the gist of <code class="language-plaintext highlighter-rouge">xgo</code> based cross compilation, you do not need to actually
 memorize and maintain these commands, as they have been incorporated into the official
-<a href="https://github.com/ethereum/go-ethereum/blob/master/Makefile">Makefile</a> and can be
+<a href="https://github.com/pod/go-pod/blob/master/Makefile">Makefile</a> and can be
 invoked with a trivial <code class="language-plaintext highlighter-rouge">make</code> request:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">make geth-cross</code>: Cross compiles to every supported OS and architecture</li>
-  <li><code class="language-plaintext highlighter-rouge">make geth-&lt;os&gt;</code>: Cross compiles supported architectures of a particular OS (e.g. <code class="language-plaintext highlighter-rouge">linux</code>)</li>
-  <li><code class="language-plaintext highlighter-rouge">make geth-&lt;os&gt;-&lt;arch&gt;</code>: Cross compiles to a specific OS/architecture (e.g. <code class="language-plaintext highlighter-rouge">linux</code>, <code class="language-plaintext highlighter-rouge">arm</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">make gpod-cross</code>: Cross compiles to every supported OS and architecture</li>
+  <li><code class="language-plaintext highlighter-rouge">make gpod-&lt;os&gt;</code>: Cross compiles supported architectures of a particular OS (e.g. <code class="language-plaintext highlighter-rouge">linux</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">make gpod-&lt;os&gt;-&lt;arch&gt;</code>: Cross compiles to a specific OS/architecture (e.g. <code class="language-plaintext highlighter-rouge">linux</code>, <code class="language-plaintext highlighter-rouge">arm</code>)</li>
 </ul>
 
 <p>We advise using the <code class="language-plaintext highlighter-rouge">make</code> based commands opposed to manually invoking <code class="language-plaintext highlighter-rouge">xgo</code> as we do
