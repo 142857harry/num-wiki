@@ -1,7 +1,7 @@
     <div class="col-md-9" id="content">
 
 
-      <p>Geth provides several extensions to the standard “eth” JSON-RPC namespace.</p>
+      <p>Gpod provides several extensions to the standard “pod” JSON-RPC namespace.</p>
 
 <ul id="markdown-toc">
   <li><a href="#eth_subscribe-eth_unsubscribe" id="markdown-toc-eth_subscribe-eth_unsubscribe">pod_subscribe, pod_unsubscribe</a></li>
