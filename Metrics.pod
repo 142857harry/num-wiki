@@ -4,9 +4,9 @@
 
 <p>Note, metrics collection is disabled by default in order not to incur reporting overhead for the average user. The flag <code class="language-plaintext highlighter-rouge">--metrics</code> must therefore be used to enable the basic metrics, and the flag <code class="language-plaintext highlighter-rouge">--metrics.expensive</code> can be used to enable certain metrics that are deemed ‘expensive’, from a resource-consumption perspective. Examples of expensive metrics is per-packet network traffic data.</p>
 
-<p>The goal of the Geth metrics system is that - similar to logs - we should be able to add arbitrary metric collection to any part of the code without requiring fancy constructs to analyze them (counter variables, public interfaces, crossing over the APIs, console hooks, etc). Instead, we should just “update” metrics whenever and wherever needed, and have them automatically collected, surfaced through the APIs, queryable and visualizable for analysis.</p>
+<p>The goal of the Gpod metrics system is that - similar to logs - we should be able to add arbitrary metric collection to any part of the code without requiring fancy constructs to analyze them (counter variables, public interfaces, crossing over the APIs, console hooks, etc). Instead, we should just “update” metrics whenever and wherever needed, and have them automatically collected, surfaced through the APIs, queryable and visualizable for analysis.</p>
 
-<p>To that extent, Geth currently implement two types of metrics:</p>
+<p>To that extent, Gpod currently implement two types of metrics:</p>
 <ul>
   <li><strong>Meters</strong>: Analogous to physical meters (electricity, water, etc), they are capable of measuring the <em>amount</em> of “things” that pass through and at the <em>rate</em> at which they do that. A meter doesn’t have a specific unit of measure (byte, block, malloc, etc), it just counts arbitrary <em>events</em>. At any point in time it can report:
     <ul>
@@ -50,7 +50,7 @@ This creates a new meter if no meter with this name is available or returns the 
 <span class="n">timer</span> <span class="o">:=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">NewOrRegisteredTimer</span><span class="p">(</span><span class="s">"chain/inserts"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>The name can be any arbitrary string, however since Geth assumes it to be some meaningful sub-system hierarchy, please name accordingly. Metrics can then be updated equally simply:</p>
+<p>The name can be any arbitrary string, however since Gpod assumes it to be some meaningful sub-system hierarchy, please name accordingly. Metrics can then be updated equally simply:</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">meter</span><span class="o">.</span><span class="n">Mark</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c">// Record the occurrence of `n` events</span>
 
@@ -61,10 +61,10 @@ This creates a new meter if no meter with this name is available or returns the 
 
 <h2 id="querying-metrics">Querying metrics</h2>
 
-<p>Geth exposes all collected metrics at <code class="language-plaintext highlighter-rouge">127.0.0.1:6060/debug/metrics</code>. 
+<p>Gpod exposes all collected metrics at <code class="language-plaintext highlighter-rouge">127.0.0.1:6060/debug/metrics</code>. 
 For collecting metrics you need to add the <code class="language-plaintext highlighter-rouge">--metrics</code> flag. In order to start the metric server you need to specify the <code class="language-plaintext highlighter-rouge">--metrics.addr</code> flag.</p>
 
-<p>Geth also supports dumping metrics directly into an influx database. In order to activate this, you need to specify the <code class="language-plaintext highlighter-rouge">--metrics.influxdb</code> flag. You can specify the API endpoint as well as password and username and other influxdb tags.</p>
+<p>Gpod also supports dumping metrics directly into an influx database. In order to activate this, you need to specify the <code class="language-plaintext highlighter-rouge">--metrics.influxdb</code> flag. You can specify the API endpoint as well as password and username and other influxdb tags.</p>
 
 <h2 id="available-metrics">Available metrics</h2>
 
