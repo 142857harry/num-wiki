@@ -2,7 +2,7 @@
 
       <h3 id="external-api">External API</h3>
 
-<p>Clef listens to HTTP requests on <code class="language-plaintext highlighter-rouge">http.addr</code>:<code class="language-plaintext highlighter-rouge">http.port</code> (or to IPC on <code class="language-plaintext highlighter-rouge">ipcpath</code>), with the same JSON-RPC standard as Geth. The messages are expected to be <a href="https://www.jsonrpc.org/specification">JSON-RPC 2.0 standard</a>.</p>
+<p>Clef listens to HTTP requests on <code class="language-plaintext highlighter-rouge">http.addr</code>:<code class="language-plaintext highlighter-rouge">http.port</code> (or to IPC on <code class="language-plaintext highlighter-rouge">ipcpath</code>), with the same JSON-RPC standard as Gpod. The messages are expected to be <a href="https://www.jsonrpc.org/specification">JSON-RPC 2.0 standard</a>.</p>
 
 <p>Some of these calls can require user interaction. Clients must be aware that responses may be delayed significantly or may never be received if a user decides to ignore the confirmation request.</p>
 
@@ -409,7 +409,7 @@ The client is responsible for creating a backup of the keystore. If the keystore
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"primaryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mail"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ether Mail"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POD Mail"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"chainId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nl">"verifyingContract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"</span><span class="w">
@@ -667,11 +667,11 @@ curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Con
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keystore:///home/bazonk/.ethereum/keystore/UTC--2017-11-20T14-44-54.089682944Z--123409812340981234098123409812deadbeef42"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keystore:///home/bazonk/.pod/keystore/UTC--2017-11-20T14-44-54.089682944Z--123409812340981234098123409812deadbeef42"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x123409812340981234098123409812deadbeef42"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keystore:///home/bazonk/.ethereum/keystore/UTC--2017-11-23T21-59-03.199240693Z--cafebabedeadbeef34098123409812deadbeef42"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keystore:///home/bazonk/.pod/keystore/UTC--2017-11-23T21-59-03.199240693Z--cafebabedeadbeef34098123409812deadbeef42"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xcafebabedeadbeef34098123409812deadbeef42"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
@@ -701,7 +701,7 @@ curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Con
       </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">0019Ethereum Signed Message:</span><span class="se">\n</span><span class="s2">4</span><span class="se">\u</span><span class="s2">0001</span><span class="se">\u</span><span class="s2">0002</span><span class="se">\u</span><span class="s2">0003</span><span class="se">\u</span><span class="s2">0004"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">0019POD Signed Message:</span><span class="se">\n</span><span class="s2">4</span><span class="se">\u</span><span class="s2">0001</span><span class="se">\u</span><span class="s2">0002</span><span class="se">\u</span><span class="s2">0003</span><span class="se">\u</span><span class="s2">0004"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/plain"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
