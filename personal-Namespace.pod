@@ -59,7 +59,7 @@ encrypting it with the passphrase.</p>
 
 <h3 id="personal_listaccounts">personal_listAccounts</h3>
 
-<p>Returns all the Ethereum account addresses of all keys
+<p>Returns all the Pod account addresses of all keys
 in the key store.</p>
 
 <table>
@@ -117,7 +117,7 @@ The account can no longer be used to send transactions.</p>
 The key file is encrypted with the given passphrase.
 Returns the address of the new account.</p>
 
-<p>At the geth console, <code class="language-plaintext highlighter-rouge">newAccount</code> will prompt for a passphrase when 
+<p>At the gpod console, <code class="language-plaintext highlighter-rouge">newAccount</code> will prompt for a passphrase when 
 it is not supplied as the argument.</p>
 
 <table>
@@ -163,9 +163,9 @@ the passphrase interactively.</p>
 
 <p>The unencrypted key will be held in memory until the unlock duration expires.
 If the unlock duration defaults to 300 seconds. An explicit duration
-of zero seconds unlocks the key until geth exits.</p>
+of zero seconds unlocks the key until gpod exits.</p>
 
-<p>The account can be used with <code class="language-plaintext highlighter-rouge">eth_sign</code> and <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> while it is unlocked.</p>
+<p>The account can be used with <code class="language-plaintext highlighter-rouge">pod_sign</code> and <code class="language-plaintext highlighter-rouge">pod_sendTransaction</code> while it is unlocked.</p>
 
 <table>
   <thead>
@@ -213,7 +213,7 @@ true
 
 <p>Validate the given passphrase and submit transaction.</p>
 
-<p>The transaction is the same argument as for <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> and contains the <code class="language-plaintext highlighter-rouge">from</code> address. If the passphrase can be used to decrypt the private key belogging to <code class="language-plaintext highlighter-rouge">tx.from</code> the transaction is verified, signed and send onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.</p>
+<p>The transaction is the same argument as for <code class="language-plaintext highlighter-rouge">pod_sendTransaction</code> and contains the <code class="language-plaintext highlighter-rouge">from</code> address. If the passphrase can be used to decrypt the private key belogging to <code class="language-plaintext highlighter-rouge">tx.from</code> the transaction is verified, signed and send onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.</p>
 
 <table>
   <thead>
@@ -234,12 +234,12 @@ true
   </tbody>
 </table>
 
-<p><em>Note, prior to Geth 1.5, please use <code class="language-plaintext highlighter-rouge">personal_signAndSendTransaction</code> as that was the
+<p><em>Note, prior to Gpod 1.5, please use <code class="language-plaintext highlighter-rouge">personal_signAndSendTransaction</code> as that was the
 original introductory name and only later renamed to the current final version.</em></p>
 
 <h4 id="examples-1">Examples</h4>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">tx</span> <span class="o">=</span> <span class="p">{</span><span class="na">from</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x391694e7e0b0cce554cb130d723a9d27458f9298</span><span class="dl">"</span><span class="p">,</span> <span class="na">to</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xafa3f8684e54059998bc3a7b0d2b0da075154d66</span><span class="dl">"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">toWei</span><span class="p">(</span><span class="mf">1.23</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ether</span><span class="dl">"</span><span class="p">)}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">tx</span> <span class="o">=</span> <span class="p">{</span><span class="na">from</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x391694e7e0b0cce554cb130d723a9d27458f9298</span><span class="dl">"</span><span class="p">,</span> <span class="na">to</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xafa3f8684e54059998bc3a7b0d2b0da075154d66</span><span class="dl">"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">toWei</span><span class="p">(</span><span class="mf">1.23</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pod</span><span class="dl">"</span><span class="p">)}</span>
 <span class="kc">undefined</span>
 <span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">sendTransaction</span><span class="p">(</span><span class="nx">tx</span><span class="p">,</span> <span class="dl">"</span><span class="s2">passphrase</span><span class="dl">"</span><span class="p">)</span>
 <span class="mh">0x8474441674cdd47b35b875fd1a530b800b51a5264b9975fb21129eeb8c18582f</span>
@@ -247,10 +247,10 @@ original introductory name and only later renamed to the current final version.<
 
 <h3 id="personal_sign">personal_sign</h3>
 
-<p>The sign method calculates an Ethereum specific signature with:
-<code class="language-plaintext highlighter-rouge">sign(keccack256("\x19Ethereum Signed Message:\n" + len(message) + message)))</code>.</p>
+<p>The sign method calculates an Pod specific signature with:
+<code class="language-plaintext highlighter-rouge">sign(keccack256("\x19Pod Signed Message:\n" + len(message) + message)))</code>.</p>
 
-<p>By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
+<p>By adding a prefix to the message makes the calculated signature recognisable as an Pod specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
 
 <p>See ecRecover to verify the signature.</p>
 
