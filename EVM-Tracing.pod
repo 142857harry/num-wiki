@@ -1,13 +1,13 @@
    <div class="col-md-9" id="content">
       
-      <p>There are two different types of transactions in Ethereum: plain value transfers and
-contract executions. A plain value transfer just moves Ether from one account to another
+      <p>There are two different types of transactions in Pod: plain value transfers and
+contract executions. A plain value transfer just moves Pod from one account to another
 and as such is uninteresting from this guide’s perspective. If however the recipient of a
-transaction is a contract account with associated EVM (Ethereum Virtual Machine)
-bytecode - beside transferring any Ether - the code will also be executed as part of the
+transaction is a contract account with associated EVM (Pod Virtual Machine)
+bytecode - beside transferring any Pod - the code will also be executed as part of the
 transaction.</p>
 
-<p>Having code associated with Ethereum accounts permits transactions to do arbitrarily
+<p>Having code associated with Pod accounts permits transactions to do arbitrarily
 complex data storage and enables them to act on the previously stored data by further
 transacting internally with outside accounts and contracts. This creates an intertwined
 ecosystem of contracts, where a single transaction can interact with tens or hundreds of
@@ -21,12 +21,12 @@ execution.</p>
 
 <h2 id="tracing-prerequisites">Tracing prerequisites</h2>
 
-<p>In its simplest form, tracing a transaction entails requesting the Ethereum node to
+<p>In its simplest form, tracing a transaction entails requesting the Pod node to
 reexecute the desired transaction with varying degrees of data collection and have it
 return the aggregated summary for post processing. Reexecuting a transaction however has a
 few prerequisites to be met.</p>
 
-<p>In order for an Ethereum node to reexecute a transaction, it needs to have available all
+<p>In order for an Pod node to reexecute a transaction, it needs to have available all
 historical state accessed by the transaction:</p>
 
 <ul>
@@ -59,7 +59,7 @@ chain segments. Those will be detailed later.</em></p>
 
 <h2 id="basic-traces">Basic traces</h2>
 
-<p>The simplest type of transaction trace that <code class="language-plaintext highlighter-rouge">go-ethereum</code> can generate are raw EVM opcode
+<p>The simplest type of transaction trace that <code class="language-plaintext highlighter-rouge">go-pod</code> can generate are raw EVM opcode
 traces. For every VM instruction the transaction executes, a structured log entry is
 emitted, containing all contextual metadata deemed useful. This includes the <em>program
 counter</em>, <em>opcode name</em>, <em>opcode cost</em>, <em>remaining gas</em>, <em>execution depth</em> and any
@@ -104,13 +104,13 @@ that take the above form:</p>
 
 <h3 id="generating-basic-traces">Generating basic traces</h3>
 
-<p>To generate a raw EVM opcode trace, <code class="language-plaintext highlighter-rouge">go-ethereum</code> provides a few <a href="./debug-Namespace">RPC API
+<p>To generate a raw EVM opcode trace, <code class="language-plaintext highlighter-rouge">go-pod</code> provides a few <a href="./debug-Namespace">RPC API
 endpoints</a>, out of which the most commonly used is
 <a href="./debug-Namespace#debug_tracetransaction"><code class="language-plaintext highlighter-rouge">debug_traceTransaction</code></a>.</p>
 
 <p>In its simplest form, <code class="language-plaintext highlighter-rouge">traceTransaction</code> accepts a transaction hash as its sole argument,
 traces the transaction, aggregates all the generated data and returns it as a <strong>large</strong>
-JSON object. A sample invocation from the Geth console would be:</p>
+JSON object. A sample invocation from the Gpod console would be:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">debug</span><span class="p">.</span><span class="nx">traceTransaction</span><span class="p">(</span><span class="dl">"</span><span class="s2">0xfc9359e49278b7ba99f59edac0e3de49956e46e530a53c15aa71226b7aa92c6f</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div></div>
@@ -140,7 +140,7 @@ for the tracer:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Running the previous tracer invocation from the Geth console with the data fields
+<p>Running the previous tracer invocation from the Gpod console with the data fields
 disabled:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">debug</span><span class="p">.</span><span class="nx">traceTransaction</span><span class="p">(</span><span class="dl">"</span><span class="s2">0xfc9359e49278b7ba99f59edac0e3de49956e46e530a53c15aa71226b7aa92c6f</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span><span class="na">disableStack</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">disableMemory</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">disableStorage</span><span class="p">:</span> <span class="kc">true</span><span class="p">})</span>
@@ -163,15 +163,15 @@ additional tools to post-process the traces. Additionally, a full opcode trace c
 go into the hundreds of megabytes, making them very resource intensive to get out of the
 node and process externally.</p>
 
-<p>To avoid all of the previously mentioned issues, <code class="language-plaintext highlighter-rouge">go-ethereum</code> supports running custom
-JavaScript tracers <em>within</em> the Ethereum node, which have full access to the EVM stack,
+<p>To avoid all of the previously mentioned issues, <code class="language-plaintext highlighter-rouge">go-pod</code> supports running custom
+JavaScript tracers <em>within</em> the Pod node, which have full access to the EVM stack,
 memory and contract storage. This permits developers to only gather the data they need,
 and do any processing <strong>at</strong> the data. Please see the next section for our <em>custom in-node
 tracers</em>.</p>
 
 <h3 id="pruning">Pruning</h3>
 
-<p>Geth by default does in-memory pruning of state, discarding state entries that it deems is
+<p>Gpod by default does in-memory pruning of state, discarding state entries that it deems is
 no longer necessary to maintain. This is configured via the <code class="language-plaintext highlighter-rouge">--gcmode</code> option. Often,
 people run into the error that state is not available.</p>
 
@@ -187,7 +187,7 @@ people run into the error that state is not available.</p>
 <p>Here’s what happens in each respective case:</p>
 
 <ol>
-  <li>Geth will regenerate the desired state by replaying blocks from the closest point ina
+  <li>Gpod will regenerate the desired state by replaying blocks from the closest point ina
 time before <code class="language-plaintext highlighter-rouge">B</code> where it has full state. This defaults to <code class="language-plaintext highlighter-rouge">128</code> blocks max, but you can
 specify more in the actual call <code class="language-plaintext highlighter-rouge">... "reexec":1000 .. }</code> to the tracer.</li>
   <li>Sorry, can’t be done without replaying from genesis.</li>
