@@ -5,7 +5,7 @@
 
 <h2 id="data-directory">Data Directory</h2>
 
-<p>Everything <code class="language-plaintext highlighter-rouge">geth</code> persists gets written inside its data directory. The default data
+<p>Everything <code class="language-plaintext highlighter-rouge">gpod</code> persists gets written inside its data directory. The default data
 directory locations are platform specific:</p>
 
 <ul>
@@ -38,13 +38,13 @@ directories that can be re-created on synchronisation and does not touch the key
 
 <p>Export the blockchain in binary format with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth export &lt;filename&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod export &lt;filename&gt;
 </code></pre></div></div>
 
 <p>Or if you want to back up portions of the chain over time, a first and last block can be
 specified. For example, to back up the first epoch:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth export &lt;filename&gt; 0 29999
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod export &lt;filename&gt; 0 29999
 </code></pre></div></div>
 
 <p>Note that when backing up a partial chain, the file will be appended rather than
@@ -52,7 +52,7 @@ truncated.</p>
 
 <p>Import binary-format blockchain exports with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth import &lt;filename&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod import &lt;filename&gt;
 </code></pre></div></div>
 
 <p><em>See https://github.com/ethereum/wiki/wiki/Blockchain-import-export for more info</em></p>
