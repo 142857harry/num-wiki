@@ -2,27 +2,27 @@
       
       
       <p>This page describes how to set up a local cluster of nodes, advise how to make it private,
-and how to hook up your nodes on the eth-netstat network monitoring app. A fully
-controlled ethereum network is useful as a backend for network integration testing (core
+and how to hook up your nodes on the pod-netstat network monitoring app. A fully
+controlled pod network is useful as a backend for network integration testing (core
 developers working on issues related to networking/blockchain synching/message
 propagation, etc or DAPP developers testing multi-block and multi-user scenarios).</p>
 
-<p>We assume you are able to build <code class="language-plaintext highlighter-rouge">geth</code> following the <a href="./Installing-Geth">build instructions</a>.</p>
+<p>We assume you are able to build <code class="language-plaintext highlighter-rouge">gpod</code> following the <a href="./Installing-Gpod">build instructions</a>.</p>
 
 <h2 id="setting-up-multiple-nodes">Setting up multiple nodes</h2>
 
-<p>In order to run multiple ethereum nodes locally, you have to make sure:</p>
+<p>In order to run multiple pod nodes locally, you have to make sure:</p>
 
 <ul>
   <li>each instance has a separate data directory (<code class="language-plaintext highlighter-rouge">--datadir</code>)</li>
-  <li>each instance runs on a different port (both eth and rpc) (<code class="language-plaintext highlighter-rouge">--port and --http.port</code>)</li>
+  <li>each instance runs on a different port (both pod and rpc) (<code class="language-plaintext highlighter-rouge">--port and --http.port</code>)</li>
   <li>in case of a cluster the instances must know about each other</li>
   <li>the ipc endpoint is unique or the ipc interface is disabled (<code class="language-plaintext highlighter-rouge">--ipcpath or --ipcdisable</code>)</li>
 </ul>
 
 <p>You start the first node (let’s make port explicit and disable ipc interface)</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --datadir="/tmp/eth/60/01" -verbosity 6 --ipcdisable --port 30301 --http.port 8101 console 2&gt;&gt; /tmp/eth/60/01.log
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --datadir="/tmp/pod/60/01" -verbosity 6 --ipcdisable --port 30301 --http.port 8101 console 2&gt;&gt; /tmp/pod/60/01.log
 </code></pre></div></div>
 
 <p>We started the node with the console, so that we can grab the enode url for instance:</p>
@@ -44,13 +44,13 @@ a service) to construct the enode url.</p>
 
 <p>Now you can launch a second node with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --datadir="/tmp/eth/60/02" --verbosity 6 --ipcdisable --port 30302 --http.port 8102 console 2&gt;&gt; /tmp/eth/60/02.log 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --datadir="/tmp/pod/60/02" --verbosity 6 --ipcdisable --port 30302 --http.port 8102 console 2&gt;&gt; /tmp/pod/60/02.log 
 </code></pre></div></div>
 
 <p>If you want to connect this instance to the previously started node you can add it as a
 peer from the console with <code class="language-plaintext highlighter-rouge">admin.addPeer(enodeUrlOfFirstInstance)</code>.</p>
 
-<p>You can test the connection by typing in geth console:</p>
+<p>You can test the connection by typing in gpod console:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; net.listening
 true
@@ -72,7 +72,7 @@ for usage and examples.</p>
 <p>The first time a node connects to the network it uses one of the predefined
 <a href="https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go">bootnodes</a>.
 Through these bootnodes a node can join the network and find other nodes. In the case of a
-private cluster these predefined bootnodes are not of much use. Therefore go-ethereum
+private cluster these predefined bootnodes are not of much use. Therefore go-pod
 offers a bootnode implementation that can be configured and run in your private network.</p>
 
 <p>It can be run through the command.</p>
@@ -81,7 +81,7 @@ offers a bootnode implementation that can be configured and run in your private 
 Fatal: Use -nodekey or -nodekeyhex to specify a private key
 </code></pre></div></div>
 
-<p>As can be seen the bootnode asks for a key. Each ethereum node, including a bootnode is
+<p>As can be seen the bootnode asks for a key. Each pod node, including a bootnode is
 identified by an enode identifier. These identifiers are derived from a key. Therefore you
 will need to give the bootnode such key. Since we currently don’t have one we can instruct
 the bootnode to generate a key (and store it in a file) before it starts.</p>
@@ -98,10 +98,10 @@ I0216 09:53:08.076155 p2p/discover/udp.go:227] Listening, enode://890b6b5367ef60
 dc90f8f7324f1cc7ba52c4077721c939f98a628ed17e51266d01c9cd0294033a
 </code></pre></div></div>
 
-<p>To instruct geth nodes to use our own bootnode(s) use the <code class="language-plaintext highlighter-rouge">--bootnodes</code> flag. This is a
+<p>To instruct gpod nodes to use our own bootnode(s) use the <code class="language-plaintext highlighter-rouge">--bootnodes</code> flag. This is a
 comma separated list of bootnode enode identifiers.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth --bootnodes "enode://890b6b5367ef6072455fedbd7a24ebac239d442b18c5ab9d26f58a349dad35ee5783a0dd543e4f454fed22db9772efe28a3ed6f21e75674ef6203e47803da682@[::]:30301"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpod --bootnodes "enode://890b6b5367ef6072455fedbd7a24ebac239d442b18c5ab9d26f58a349dad35ee5783a0dd543e4f454fed22db9772efe28a3ed6f21e75674ef6203e47803da682@[::]:30301"
 </code></pre></div></div>
 
 <p>(what <code class="language-plaintext highlighter-rouge">[::]</code> means is explained previously)</p>
