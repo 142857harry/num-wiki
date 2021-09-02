@@ -299,11 +299,11 @@ building only works on UNIX-like operating systems, and you still need Go instal
 make gpod
 </code></pre></div></div>
 
-<p>These commands create a <code class="language-plaintext highlighter-rouge">gpod</code> executable file in the <code class="language-plaintext highlighter-rouge">go-ethereum/build/bin</code> folder that
+<p>These commands create a <code class="language-plaintext highlighter-rouge">gpod</code> executable file in the <code class="language-plaintext highlighter-rouge">go-pod/build/bin</code> folder that
 you can move wherever you want to run from. The binary is standalone and doesn’t require
 any additional files.</p>
 
-<p>Additionally you can compile all additional tools go-ethereum comes with by running <code class="language-plaintext highlighter-rouge">make
+<p>Additionally you can compile all additional tools go-pod comes with by running <code class="language-plaintext highlighter-rouge">make
 all</code>. A list of all tools can be found <a href="https://github.com/ethereum/go-ethereum#executables">here</a>.</p>
 
 <p>If you want to cross-compile to another architecture check out the <a href="./Cross-Compiling-Geth">cross-compilation guide</a>.</p>
