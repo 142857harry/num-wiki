@@ -3,7 +3,7 @@
       <p>In the previous section you learned how to create a complete trace. However, those traces can include the complete status of the EVM at every point
 in the execution, which is huge. Usually you are only interested in a small subset of this information. To get it, you can specify a JavaScript filter.</p>
 
-<p><strong>Note:</strong> The JavaScript interpreter used by Geth is <a href="https://duktape.org/">duktape</a>, which is only up to the
+<p><strong>Note:</strong> The JavaScript interpreter used by Gpod is <a href="https://duktape.org/">duktape</a>, which is only up to the
 <a href="https://262.ecma-international.org/5.1/">ECMAScript 5.1 standard</a>. This means we cannot use <a href="https://www.w3schools.com/js/js_arrow_function.asp">arrow functions</a>
 and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literals</a>.</p>
 
