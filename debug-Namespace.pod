@@ -680,7 +680,7 @@ This method works a bit differently. (For full details, see <a href="https://git
 ["/tmp/block_0x0bbe9f14-0-0xb4502ea7-409046657", "/tmp/block_0x0bbe9f14-1-0xe839be8f-954614764", "/tmp/block_0x0bbe9f14-2-0xc6e2052f-542255195", "/tmp/block_0x0bbe9f14-3-0x01b7f3fe-209673214", "/tmp/block_0x0bbe9f14-4-0x0f290422-320999749", "/tmp/block_0x0bbe9f14-5-0x2dc0fb80-844117472", "/tmp/block_0x0bbe9f14-6-0x35542da1-256306111", "/tmp/block_0x0bbe9f14-7-0x3e199a08-086370834", "/tmp/block_0x0bbe9f14-8-0x87778b88-194603593", "/tmp/block_0x0bbe9f14-9-0xbcb081ba-629580052", "/tmp/block_0x0bbe9f14-10-0xc254381a-578605923", "/tmp/block_0x0bbe9f14-11-0xcc434d58-405931366", "/tmp/block_0x0bbe9f14-12-0xce61967d-874423181", "/tmp/block_0x0bbe9f14-13-0x05a20b35-267153288", "/tmp/block_0x0bbe9f14-14-0x4049f61f-606653767", "/tmp/block_0x0bbe9f14-15-0x46d473d2-614457338", "/tmp/block_0x0bbe9f14-16-0x35cf5500-411906321", "/tmp/block_0x0bbe9f14-17-0x79222961-278569788", "/tmp/block_0x0bbe9f14-18-0xad84e7b1-095032683", "/tmp/block_0x0bbe9f14-19-0x4bd48260-019097038", "/tmp/block_0x0bbe9f14-20-0x1517411d-292624085", "/tmp/block_0x0bbe9f14-21-0x6857e350-971385904", "/tmp/block_0x0bbe9f14-22-0xbe3ae2ca-236639695"]
 
 </code></pre></div></div>
-<p>Files are created in a temp-location, with the naming standard <code class="language-plaintext highlighter-rouge">block_&lt;blockhash:4&gt;-&lt;txindex&gt;-&lt;txhash:4&gt;-&lt;random suffix&gt;</code>. Each opcode immediately streams to file, with no in-geth buffering aside from whatever buffering the os normally does.</p>
+<p>Files are created in a temp-location, with the naming standard <code class="language-plaintext highlighter-rouge">block_&lt;blockhash:4&gt;-&lt;txindex&gt;-&lt;txhash:4&gt;-&lt;random suffix&gt;</code>. Each opcode immediately streams to file, with no in-gpod buffering aside from whatever buffering the os normally does.</p>
 
 <p>On the server side, it also adds some more info when regenerating historical state, namely, the reexec-number if <code class="language-plaintext highlighter-rouge">required historical state is not avaiable</code> is encountered, so a user can experiment with increasing that setting. It also prints out the remaining block until it reaches target:</p>
 
@@ -895,17 +895,17 @@ specifies the options for this specific call. The possible options are:</p>
 
 <h3 id="debug_tracecall">debug_traceCall</h3>
 
-<p>The <code class="language-plaintext highlighter-rouge">debug_traceCall</code> method lets you run an <code class="language-plaintext highlighter-rouge">eth_call</code> within the context of the given block execution using the final state of parent block as the base. The block can be specified either by hash or by number. It takes the same input object as a <code class="language-plaintext highlighter-rouge">eth_call</code>.
+<p>The <code class="language-plaintext highlighter-rouge">debug_traceCall</code> method lets you run an <code class="language-plaintext highlighter-rouge">pod_call</code> within the context of the given block execution using the final state of parent block as the base. The block can be specified either by hash or by number. It takes the same input object as a <code class="language-plaintext highlighter-rouge">pod_call</code>.
 It returns the same output as <code class="language-plaintext highlighter-rouge">debug_traceTransaction</code>. A tracer can be specified as a third argument, similar to <code class="language-plaintext highlighter-rouge">debug_traceTransaction</code>.</p>
 
 <p><code class="language-plaintext highlighter-rouge">Object</code> - The transaction call object</p>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">from</code>: <code class="language-plaintext highlighter-rouge">DATA</code>, 20 Bytes - (optional) The address the transaction is sent from.</li>
   <li><code class="language-plaintext highlighter-rouge">to</code>: <code class="language-plaintext highlighter-rouge">DATA</code>, 20 Bytes - The address the transaction is directed to.</li>
-  <li><code class="language-plaintext highlighter-rouge">gas</code>: <code class="language-plaintext highlighter-rouge">QUANTITY</code> - (optional) Integer of the gas provided for the transaction execution. eth_call consumes zero gas, but this parameter may be needed by some executions.</li>
+  <li><code class="language-plaintext highlighter-rouge">gas</code>: <code class="language-plaintext highlighter-rouge">QUANTITY</code> - (optional) Integer of the gas provided for the transaction execution. pod_call consumes zero gas, but this parameter may be needed by some executions.</li>
   <li><code class="language-plaintext highlighter-rouge">gasPrice</code>: <code class="language-plaintext highlighter-rouge">QUANTITY</code> - (optional) Integer of the gasPrice used for each paid gas</li>
   <li><code class="language-plaintext highlighter-rouge">value</code>: <code class="language-plaintext highlighter-rouge">QUANTITY</code> - (optional) Integer of the value sent with this transaction</li>
-  <li><code class="language-plaintext highlighter-rouge">data</code>: <code class="language-plaintext highlighter-rouge">DATA</code> - (optional) Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI in the Solidity documentation</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code>: <code class="language-plaintext highlighter-rouge">DATA</code> - (optional) Hash of the method signature and encoded parameters. For details see Pod Contract ABI in the Solidity documentation</li>
 </ul>
 
 <table>
@@ -918,7 +918,7 @@ It returns the same output as <code class="language-plaintext highlighter-rouge"
   <tbody>
     <tr>
       <td style="text-align: center">Go</td>
-      <td><code class="language-plaintext highlighter-rouge">debug.TraceCall(args ethapi.CallArgs, blockNrOrHash rpc.BlockNumberOrHash, config *TraceConfig) (*ExecutionResult, error)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">debug.TraceCall(args podapi.CallArgs, blockNrOrHash rpc.BlockNumberOrHash, config *TraceConfig) (*ExecutionResult, error)</code></td>
     </tr>
     <tr>
       <td style="text-align: center">Console</td>
@@ -1011,7 +1011,7 @@ can be raised using <code class="language-plaintext highlighter-rouge">debug_vmo
 <p>If you want to see messages from a particular Go package (directory)
 and all subdirectories, use:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nx">debug</span><span class="p">.</span><span class="nx">vmodule</span><span class="p">(</span><span class="dl">"</span><span class="s2">eth/*=6</span><span class="dl">"</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nx">debug</span><span class="p">.</span><span class="nx">vmodule</span><span class="p">(</span><span class="dl">"</span><span class="s2">pod/*=6</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>If you want to restrict messages to a particular package (e.g. p2p)
@@ -1026,11 +1026,11 @@ but exclude subdirectories, use:</p>
 </code></pre></div></div>
 
 <p>You can compose these basic patterns. If you want to see all
-output from peer.go in a package below eth (eth/peer.go,
-eth/downloader/peer.go) as well as output from package p2p
+output from peer.go in a package below pod (pod/peer.go,
+pod/downloader/peer.go) as well as output from package p2p
 at level &lt;= 5, use:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">debug</span><span class="p">.</span><span class="nx">vmodule</span><span class="p">(</span><span class="dl">"</span><span class="s2">eth/*/peer.go=6,p2p=5</span><span class="dl">"</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">debug</span><span class="p">.</span><span class="nx">vmodule</span><span class="p">(</span><span class="dl">"</span><span class="s2">pod/*/peer.go=6,p2p=5</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="debug_writeblockprofile">debug_writeBlockProfile</h3>
